@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main class="">
+{{ "<!-- Contact Section Start -->" | safeHTML }}
+
+{{ if ( .Page.Params.header.enable ) }}
+    {{ partial "contact/header" . }}
+{{ end }}
+
+{{ if ( .Page.Params.form.enable ) }}
+    {{ partial "contact/form" . }}
+{{ end }}
+
+{{ if ( .Page.Params.enable.about ) }}
+{{ partial "about.html" . }}
+{{ end }}
+
+{{ if ( .Page.Params.footer.enable ) }}
+{{ partial "full-footer" . }}
+{{ end }}
+</main>
+{{ end }}

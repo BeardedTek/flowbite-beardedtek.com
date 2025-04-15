@@ -1,0 +1,12 @@
+enable: true
+header: Contact The Bearded Tek
+headerText  : |
+  This is placeholder text for the contact page
+officeAddress: Palmer, AK
+email: contact@beardedtek.com
+phone: (907) 519-8577
+phoneLink: 19075198577
+form:
+  header:
+    title: Send Us a Message
+    text: Use this form to send us a message.  Generally response times are within 1 hour during business hours.

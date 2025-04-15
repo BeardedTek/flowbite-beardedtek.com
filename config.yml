@@ -30,4 +30,4 @@ disableKinds:
   - taxonomy
   - taxonomyTerm
   - RSS
-publishDir: _gh_pages
+publishDir: public

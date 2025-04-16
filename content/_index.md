@@ -9,7 +9,7 @@ navbar:
         1:
             name: Home
             link: /
-            target:
+            target: 
         2:
             name: Blog
             link: https://beardedtek.org
@@ -17,11 +17,11 @@ navbar:
         3:
             name: Contact
             link: /contact/
-            target:
+            target: 
         4:
             name: (907) 519-8577
             link: "tel:+19075198577"
-            target:
+            target: 
 
 hero:
     enable: true
@@ -222,7 +222,7 @@ footer:
                 content:
                     1:
                         name: (907) 519-8577
-                        link: "+19075198577"
+                        link: "tel:+19075198577"
                     2:
                         name: support@beardedtek.com
                         link: "mailto:support@beardedtek.com"
@@ -232,7 +232,7 @@ footer:
                 content:
                     1:
                         name: (907) 519-8577
-                        link: "+19075198577"
+                        link: "tel:+19075198577"
                     2:
                         name: contact@beardedtek.com
                         link: "mailto:contact@beardedtek.com"

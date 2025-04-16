@@ -8,6 +8,18 @@ params:
     text: The Bearded Tek
     svg: /images/logo/no-padding.svg
     favicon:
+  hero:
+    word-slider:
+    enable: true
+    items:
+        - "ON-SITE SUPPORT"
+        - "REMOTE SUPPORT"
+        - "COMPUTERS"
+        - "PRINTERS"
+        - "NETWORKING"
+        - "CAMERAS"
+        - "WEB DESIGN"
+        - "WEB HOSTING"
   homepage: https://beardedtek.com
   authors: Flowbite
   social_image_path: /marketing-ui/demo/images/og-image.jpg

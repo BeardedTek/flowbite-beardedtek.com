@@ -1,15 +1,6 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="max-w-screen-xl px-4 py-6 mx-auto sm:py-8 lg:py-10">
-
         <div class="max-w-3xl mx-auto mt-8 lg:mt-12">
-            <div class="max-w-2xl mx-auto text-center mb-8">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                    {{ .Site.Data.contact.form.header.title}}
-                </h2>
-                <p class="mt-4 text-base text-gray-500 sm:text-xl dark:text-gray-500">
-                    {{ .Site.Data.contact.form.header.text}}
-                </p>
-            </div>
             <form method="{{ .Page.Params.form.method }}" action="{{ .Page.Params.form.action}}" class="grid max-w-screen-md grid-cols-1 mx-auto gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
                     <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

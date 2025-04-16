@@ -3,7 +3,9 @@
 {{ "<!-- Contact Section Start -->" | safeHTML }}
 
 {{ if ( .Page.Params.header.enable ) }}
-    {{ partial "contact/header" . }}
+    {{ with .Page.Params.header }}
+        {{ partial "contact/heading" . }}
+    {{ end }}
 {{ end }}
 
 {{ if ( .Page.Params.form.enable ) }}
@@ -11,11 +13,13 @@
 {{ end }}
 
 {{ if ( .Page.Params.enable.about ) }}
-{{ partial "about.html" . }}
+    {{ partial "about.html" . }}
 {{ end }}
 
-{{ if ( .Page.Params.footer.enable ) }}
-{{ partial "full-footer" . }}
+{{ with .Page.Params.footer }}
+    {{ if ( .enable ) }}
+        {{ partial "footer/full" . }}
+    {{ end }}
 {{ end }}
 </main>
 {{ end }}

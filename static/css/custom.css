@@ -1,3 +1,21 @@
+.hero{
+    position: relative;
+    opacity: 1;
+    height: 66vh;
+    background: rgba(175, 175, 255, 0.1);
+}
+.hero::before{
+    content: "";
+    background-image: url('/images/slider/slider.webp');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    opacity: 0.2;
+
+}
 .kanit-thin {
     font-family: "Kanit", sans-serif;
     font-weight: 100;

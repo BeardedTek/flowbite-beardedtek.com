@@ -1,6 +1,6 @@
 <header>
     <nav id="mainNavbar" data-sticky="false" class="dark:bg-transparent bg-transparent border-gray-200 py-2.5 fixed w-full z-40 top-0 start-0 data-[sticky=true]:bg-white data-[sticky=true]:border-b dark:data-[sticky=true]:bg-gray-800 dark:data-[sticky=true]:border-gray-700">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4" >
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 text-2xl md:text-3xl" >
             <a href="{{ .Site.Params.baseURL }}/" class="flex items-center">
                 <svg width="auto" class="h-8 mr-4 text-primary-800 dark:text-primary-500" viewBox="0 0 16.223 22" xmlns="http://www.w3.org/2000/svg" alt="Flowbite Logo">
                     <g transform="translate(-98.904 -98.724)">
@@ -13,7 +13,7 @@
                         </g>
                     </g>
                 </svg>
-                <span class="self-center text-3xl font-semibold kanit-semibold whitespace-nowrap text-primary-800 dark:text-primary-300">{{ .Site.Params.logo.text }}</span>
+                <span class="self-center font-semibold kanit-semibold whitespace-nowrap text-primary-800 dark:text-primary-300">{{ .Site.Params.logo.text }}</span>
             </a>
             <div class="flex items-center lg:order-2 dark:text-gray-400">
                  <button id="themeToggle" data-tooltip-target="tooltip-toggle" type="button" class="hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-2.5">

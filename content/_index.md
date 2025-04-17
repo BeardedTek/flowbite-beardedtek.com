@@ -2,11 +2,11 @@
 title: "The Bearded Tek | Your IT Handyman"
 date: 2025-04-15T17:09:20+06:00
 description: "The Bearded Tek, Palmer and Wasilla's IT Handyman"
-layout: main
+layout: index
 hero:
     enable: true
     title: Your IT Handyman
-    tagline: We provide reliable, affordable tech support for homes and businesses in the Palmer-Wasilla area.
+    tagline: We provide reliable, affordable tech support for homes and businesses in Alaska's Mat-Su Valley.
     wordSlider:
         enable: true
         items:

@@ -1,6 +1,7 @@
 .hero{
     position: relative;
     opacity: 1;
+    height: 55vh;
     background: rgba(175, 175, 255, 0.1);
 }
 .hero::before{

@@ -18,7 +18,7 @@ params:
             link: /contact/
         4:
             name: (907) 519-8577
-            link: "tel:+19075198577"
+            phone: 19075198577
   logo:
     text: The Bearded Tek
     svg: /images/logo/no-padding.svg

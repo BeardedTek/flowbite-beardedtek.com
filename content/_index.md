@@ -3,26 +3,6 @@ title: "The Bearded Tek | Your IT Handyman"
 date: 2025-04-15T17:09:20+06:00
 description: "The Bearded Tek, Palmer and Wasilla's IT Handyman"
 layout: main
-navbar:
-    enable: true
-    items:
-        1:
-            name: Home
-            link: /
-            target: 
-        2:
-            name: Blog
-            link: https://beardedtek.org
-            target: _blank
-        3:
-            name: Contact
-            link: /contact/
-            target: 
-        4:
-            name: (907) 519-8577
-            link: "tel:+19075198577"
-            target: 
-
 hero:
     enable: true
     title: Your IT Handyman
@@ -190,50 +170,4 @@ pricing:
                 text: Get Started
                 link: /contact/
 
-
-footer:
-    enable: true
-    links:
-        enable: true
-        columns:
-            1:
-                name: Company
-                link:
-                content:
-                    1:
-                        name: About
-                        link: /about/
-                    2:
-                        name: Blog
-                        link: /blog/
-            2:
-                name: Legal
-                link:
-                content:
-                    1:
-                        name: Privacy Policy
-                        link: /privacy/
-                    2:
-                        name: Terms
-                        link: /terms/
-            3:
-                name: Support
-                link: /contact/
-                content:
-                    1:
-                        name: (907) 519-8577
-                        link: "tel:+19075198577"
-                    2:
-                        name: support@beardedtek.com
-                        link: "mailto:support@beardedtek.com"
-            4:
-                name: Contact
-                link: /contact/
-                content:
-                    1:
-                        name: (907) 519-8577
-                        link: "tel:+19075198577"
-                    2:
-                        name: contact@beardedtek.com
-                        link: "mailto:contact@beardedtek.com"
 ---

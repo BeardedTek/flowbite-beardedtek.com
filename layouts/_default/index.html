@@ -13,16 +13,14 @@
 {{ end }}
 {{ with .Page.Params.pricing }}
     {{ if ( .enable ) }}
-        {{ with .heading }}
-            {{ if ( .enable ) }}
-                {{ partial "pricing/heading" .}}
-            {{ end }}
+        {{ if ( .heading.enable ) }}
+            {{ partial "pricing/heading" .}}
         {{ end }}
         {{ partial "pricing/pricing" . }}
     {{ end }}
 {{ end }}
 </main>
-{{ with .Page.Params.footer }}
+{{ with .Site.Params.footer }}
     {{ if ( .enable ) }}
         {{ partial "footer/full" . }}
     {{ end }}

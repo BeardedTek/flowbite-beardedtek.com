@@ -4794,11 +4794,13 @@
   .group-data-\[sticky\=true\]\:text-gray-500 {
     &:is(:where(.group)[data-sticky="true"] *) {
       color: var(--color-gray-500);
+      opacity: 0.4;
     }
   }
   .group-data-\[sticky\=true\]\:text-gray-900 {
     &:is(:where(.group)[data-sticky="true"] *) {
       color: var(--color-gray-900);
+      opacity: 0.4;
     }
   }
   .peer-checked\:bg-blue-600 {

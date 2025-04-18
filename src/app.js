@@ -4,3 +4,4 @@ import 'flowbite';
 import './dark-mode';
 import './navbar';
 import './current-year';
+import './contact-form';

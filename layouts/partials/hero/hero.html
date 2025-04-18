@@ -1,0 +1,12 @@
+<section class="hero flex justify-center">
+    <div class="h-full flex">
+        <div class=" align-middle px-4 my-auto">
+            {{ partial "hero/heading" . }}
+            {{ if ( .Page.Params.hero.wordSlider.enable ) }}
+                {{ partial "hero/slider" . }}
+            {{ end }}
+            {{ partial "hero/tagline" . }}
+            {{ partial "hero/veteran" . }}
+        </div>
+    </div>
+</section>

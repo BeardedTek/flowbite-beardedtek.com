@@ -17,15 +17,15 @@
 {{ with .Page.Params.pricing }}
     {{ if ( .enable ) }}
         {{ if ( .heading.enable ) }}
-            {{ partial "pricing/heading" .}}
+            {{ partial "rates/heading" .}}
         {{ end }}
-        {{ partial "pricing/pricing" . }}
+        {{ partial "rates/rates" . }}
     {{ end }}
 {{ end }}
 </main>
 {{ with .Site.Params.footer }}
     {{ if ( .enable ) }}
-        {{ partial "footer/full" . }}
+        {{ partial "footer/main" . }}
     {{ end }}
 {{ end }}
 {{ end }}

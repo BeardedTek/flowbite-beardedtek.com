@@ -1,76 +1,50 @@
+---
 languageCode: en
-title: The Bearded Tek | Your IT Handyman
+title: "The Bearded Tek | Your IT Handyman"
 baseURL: http://localhost:1313
 enableInlineShortcodes: true
 canonifyURLs: true
+
 params:
   navbar:
     enable: true
     links:
-        1:
-            name: Home
-            link: /
-        2:
-            name: Pricing
-            link: /pricing/
-        3:
-            name: Contact
-            link: /contact/
-        4:
-            name: (907) 519-8577
-            phone: 19075198577
+      - name: Home
+        link: /
+      - name: Rates
+        link: /rates/
+      - name: Contact
+        link: /contact/
+      - name: "(907) 519-8577"
+        phone: 19075198577
+
   logo:
     text: The Bearded Tek
     svg: /images/logo/no-padding.svg
     favicon:
+
   homepage: https://beardedtek.com
-  authors: Flowbite
+  authors: William Kenny
   social_image_path: /marketing-ui/demo/images/og-image.jpg
+
   footer:
     enable: true
     links:
-        enable: true
-        columns:
-            1:
-                name: Company
-                link:
-                content:
-                    1:
-                        name: About
-                        link: /about/
-                    2:
-                        name: Blog
-                        link: /blog/
-            2:
-                name: Legal
-                link:
-                content:
-                    1:
-                        name: Privacy Policy
-                        link: /privacy/
-                    2:
-                        name: Terms
-                        link: /terms/
-            3:
-                name: Support
-                link: /contact/
-                content:
-                    1:
-                        name: (907) 519-8577
-                        link: "+19075198577"
-                    2:
-                        name: support@beardedtek.com
-                        link: "mailto:support@beardedtek.com"
-            4:
-                name: Contact
-                link: /contact/
-                content:
-                    1:
-                        name: (907) 519-8577
-                        link: "+19075198577"
-                    2:
-                        name: contact@beardedtek.com
-                        link: "mailto:contact@beardedtek.com"
+      - name: About
+        href: "/about/"
+      - name: Blog
+        href: "/blog/"
+      - name: Privacy Policy
+        href: "/privacy/"
+      - name: Terms
+        href: "/terms/"
+      - name: Support
+        href: "/contact?topic=support"
+      - name: Contact Us
+        href: "/contact"
+      - name: "(907) 519-8577"
+        href: "tel:9075198577"
+
 markup:
   goldmark:
     renderer:
@@ -81,13 +55,17 @@ markup:
   tableOfContents:
     startLevel: 2
     endLevel: 6
+
 buildDrafts: true
 buildFuture: true
 enableRobotsTXT: true
 metaDataFormat: yaml
+
 disableKinds:
-  - '404'
+  - "404"
   - taxonomy
   - taxonomyTerm
   - RSS
+
 publishDir: public
+---

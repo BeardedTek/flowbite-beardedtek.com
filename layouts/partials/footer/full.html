@@ -1,30 +1,15 @@
-<footer class="pb-8 bg-gray-50 dark:bg-gray-800">
-{{ if .links.enable }}
-    <!-- Footer Links Begin -->
-    <div class="max-w-screen-xl px-4 pt-8 mx-auto sm:pt-4">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center">
-            {{ range $index, $element := .links.columns }}
-            <div class="text-center pb-4">
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                    {{ if ( .link ) }}
-                    <a href="{{ .link }}">{{ .name }}</a>
-                    {{ else }}
-                    {{ .name }}
-                    {{ end }}
-                </h2>
-                <ul class="text-gray-500 dark:text-gray-400">
-                {{ range $index, $element := .content }}
-                    <li class="mb-4">
-                        <a href="{{ .link }}" class="hover:underline hover:text-gray-900 dark:hover:text-white">{{ .name }}</a>
-                    </li>
+<footer class="pb-8 bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-400">
+        <!-- Footer Links -->
+        <div class="max-w-screen-xl px-4 pt-8 mx-auto sm:pt-4">
+            <div class="flex flex-wrap justify-between">
+                {{ range $index, $element := .links }}
+                <div class="text-center">
+                    <a class="hover:text-gray-900 dark:hover:text-white" href="{{ .href }}">{{ .name }}</a>
+                </div>
                 {{ end }}
-                </ul>
             </div>
-            {{ end }}
         </div>
-    </div>
-    <!-- Footer Links End -->
-{{ end }}
+        <!-- END Footer Links -->
         <div class="mt-4">
             <a href="#"
                 class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">

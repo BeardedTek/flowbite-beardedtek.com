@@ -1,5 +1,7 @@
 <header>
-    <nav id="mainNavbar" data-sticky="false" class="dark:bg-transparent bg-transparent border-gray-200 py-2.5 fixed w-full z-40 top-0 start-0 data-[sticky=true]:bg-white data-[sticky=true]:border-b dark:data-[sticky=true]:bg-gray-800 dark:data-[sticky=true]:border-gray-700">
+    <nav id="mainNavbar" data-sticky="false"
+         class="dark:bg-transparent bg-transparent border-gray-200 py-2.5 fixed w-full z-40 top-0 start-0
+        data-[sticky=true]:bg-nav-light dark:data-[sticky=true]:bg-nav-dark">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 text-2xl md:text-3xl" >
             <a href="{{ .Site.Params.baseURL }}/" class="flex items-center">
                 <svg width="auto" class="h-8 mr-4 text-primary-800 dark:text-primary-500" viewBox="0 0 16.223 22" xmlns="http://www.w3.org/2000/svg" alt="Flowbite Logo">
@@ -34,7 +36,11 @@
                 <ul class="flex flex-col rounded-lg font-medium lg:flex-row lg:space-x-8 text-gray-900 dark:text-gray-300">
                     {{ range $index, $element := .Site.Params.navbar.links}}
                     <li>
-                        <a class="block py-2 pr-4 pl-3  border-b border-gray-100 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700" aria-current="page"
+                        <a class="block py-2 pr-4 pl-3 border-b text-lg
+                                border-gray-100 hover:bg-gray-100 lg:hover:bg-transparent lg:text-xl
+                                lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:text-primary-500
+                                dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                            aria-current="page"
                             href="{{ if ( .phone ) }}tel:{{ .phone }}{{else}}{{ .link }}{{ end }}">
                             {{ .name }}
                         </a>

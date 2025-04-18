@@ -2,7 +2,7 @@
 title: "Contact"
 date: 2025-04-15T17:09:20+06:00
 description : "Contact The Bearded Tek"
-layout: main
+layout: index
 navbar:
     enable: true
 header:

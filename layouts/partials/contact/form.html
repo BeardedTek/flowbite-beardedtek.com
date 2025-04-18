@@ -1,7 +1,8 @@
+
 <section class="bg-white dark:bg-gray-900">
     <div class="max-w-screen-xl px-4 py-6 mx-auto sm:py-8 lg:py-10">
         <div class="max-w-3xl mx-auto mt-8 lg:mt-12">
-            <form method="{{ .Page.Params.form.method }}" action="{{ .Page.Params.form.action}}" class="grid max-w-screen-md grid-cols-1 mx-auto gap-x-8 gap-y-6 sm:grid-cols-2">
+            <form name="contact" method="{{ .Page.Params.form.method }}" action="{{ .Page.Params.form.action}}" class="grid max-w-screen-md grid-cols-1 mx-auto gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
                     <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         First name
@@ -37,7 +38,14 @@
                         class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="(907) 123-4567" required>
                 </div>
-
+                <div class="sm:col-span-2">
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Subject
+                    </label>
+                    <input type="text" name="subject" id="subject" 
+                        class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        value="The Bearded Tek Contact Form Submission" required>
+                </div>
                 <div class="sm:col-span-2">
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Your message

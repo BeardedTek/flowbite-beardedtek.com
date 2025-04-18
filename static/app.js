@@ -58,8 +58,10 @@ themeToggleBtn.addEventListener('click', function() {
 function toggleStickyNavbar() {
     if (window.scrollY > 0) {
         navbar.setAttribute('data-sticky', 'true');
+        navbar.classList.add('backdrop-blur')
     } else {
         navbar.setAttribute('data-sticky', 'false');
+        navbar.classList.add('backdrop-blur')
     }
 }
 

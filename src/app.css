@@ -1,9 +1,12 @@
 @import "tailwindcss";
+@import url("./kanit.css");
+@import url("./hero.css");
 
 @plugin "flowbite/plugin";
 @plugin "flowbite-typography";
 
 @source "../node_modules/flowbite";
+@source "../node_modules/bad-words";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -18,7 +21,9 @@
     --color-primary-700: #1d4ed8;
     --color-primary-800: #1e40af;
     --color-primary-900: #1e3a8a;
-    
+    --color-nav-light: rgba(255,255,255,1);
+    --color-nav-dark: rgba(31,41,55,1);
+
     --font-sans: 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-body: 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';

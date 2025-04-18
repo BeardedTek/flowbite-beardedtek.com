@@ -73,7 +73,7 @@ pricing:
                     note: Does not apply to 1st hour
             button:
                 text: Get Started
-                link: /contact/
+                link: "/contact?topic=on-site service"
         2:
             name: Remote Service
             desc: We connect to you
@@ -86,7 +86,6 @@ pricing:
                     name: Addtional Hour
                     price: 80
                     period:
-                
             features:
                 1:
                     icon: true
@@ -105,10 +104,10 @@ pricing:
                     note: Does not apply to 1st hour
             button:
                 text: Get Started
-                link: /contact/
+                link: "/contact?topic=remote service"
         3:
-            name: Static Web Site
-            desc: Custom Web Site Design
+            name: Web Design
+            desc: Static Web Sites
             price:
                 1:
                     name: Template
@@ -136,7 +135,7 @@ pricing:
                     note:
             button:
                 text: Get Started
-                link: /contact/
+                link: "/contact?topic=static web design"
                     
         4:
             name: Web Hosting
@@ -168,6 +167,5 @@ pricing:
                     note:
             button:
                 text: Get Started
-                link: /contact/
-
+                link: "/contact?topic=static web hosting"
 ---

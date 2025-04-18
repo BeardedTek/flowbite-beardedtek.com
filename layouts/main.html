@@ -15,10 +15,10 @@
     {{ if ( .enable ) }}
         {{ with .heading }}
             {{ if ( .enable ) }}
-                {{ partial "pricing/heading" .}}
+                {{ partial "rates/heading" .}}
             {{ end }}
         {{ end }}
-        {{ partial "pricing/pricing" . }}
+        {{ partial "rates/rates" . }}
     {{ end }}
 {{ end }}
 </main>

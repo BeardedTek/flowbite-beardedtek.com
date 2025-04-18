@@ -31,4 +31,4 @@ jobs:
             DC_BUILD_FLAGS: "--no-cache"
             DC_UP_FLAGS: "-d"
         run: |
-          ssh -i ~/.ssh/id_rsa $REMOTE_USER@REMOTE_HOST "docker compose -f $DC_FILE build $DC_BUILD_FLAGS &&  docker compose -f $DC_FILE up $DC_UP_FLAGS"
+          ssh -i ~/.ssh/id_rsa $REMOTE_USER@$REMOTE_HOST "docker compose -f $DC_FILE build $DC_BUILD_FLAGS &&  docker compose -f $DC_FILE up $DC_UP_FLAGS"

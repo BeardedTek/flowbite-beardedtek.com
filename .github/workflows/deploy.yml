@@ -1,0 +1,33 @@
+name: Deploy to Remote Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        env:
+            DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H your.remote.server.com >> ~/.ssh/known_hosts
+
+      - name: Deploy with Docker Compose
+        env:
+            DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST}}
+            REMOTE_USER: ${{ secrets.REMOTE_USER}}
+            DC_FILE: ${{ secrets.DOCKER_COMPOSE_FILE }}
+            DC_BUILD_FLAGS: "--no-cache"
+            DC_UP_FLAGS: "-d"
+        run: |
+          ssh -i ~/.ssh/id_rsa $REMOTE_USER@REMOTE_HOST "docker compose -f $DC_FILE build $DC_BUILD_FLAGS &&  docker compose -f $DC_FILE up $DC_UP_FLAGS"

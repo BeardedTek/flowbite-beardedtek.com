@@ -1,31 +1,16 @@
 {{ define "main" }}
 <main class="text-primary-800 dark:gray-400">
 {{ if ( .Page.Params.hero.enable ) }}
-<section class="hero flex justify-center">
-    <div class="h-full flex">
-        <div class=" align-middle px-4 my-auto">
-            {{ partial "hero/heading" . }}
-            {{ if ( .Page.Params.hero.wordSlider.enable ) }}
-                {{ partial "hero/slider" . }}
-            {{ end }}
-            {{ partial "hero/tagline" . }}
-            {{ partial "hero/veteran" . }}
-        </div>
-    </div>
-</section>
+    {{ partial "hero/index" .}}
 {{ end }}
-{{ with .Page.Params.pricing }}
-    {{ if ( .enable ) }}
-        {{ if ( .heading.enable ) }}
-            {{ partial "rates/heading" .}}
-        {{ end }}
-        {{ partial "rates/rates" . }}
+{{ if ( .Page.Params.rates.enable ) }}
+    {{ if ( .Page.Params.rates.heading.enable ) }}
+        {{ partial "rates/heading" .}}
     {{ end }}
+    {{ partial "rates/rates" . }}
 {{ end }}
 </main>
-{{ with .Site.Params.footer }}
-    {{ if ( .enable ) }}
-        {{ partial "footer/main" . }}
-    {{ end }}
+{{ if ( .Site.Params.footer.enable ) }}
+    {{ partial "footer/main" . }}
 {{ end }}
 {{ end }}

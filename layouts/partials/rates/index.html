@@ -1,0 +1,6 @@
+{{ if ( .Page.Params.rates.enable ) }}
+    {{ if ( .Page.Params.heading.enable ) }}
+        {{ partial "rates/heading" .}}
+    {{ end }}
+    {{ partial "rates/rates" . }}
+{{ end }}

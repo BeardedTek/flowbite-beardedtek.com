@@ -15,11 +15,5 @@
 {{ if ( .Page.Params.enable.about ) }}
     {{ partial "about.html" . }}
 {{ end }}
-
-{{ with .Page.Params.footer }}
-    {{ if ( .enable ) }}
-        {{ partial "footer/full" . }}
-    {{ end }}
-{{ end }}
 </main>
 {{ end }}

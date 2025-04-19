@@ -13,7 +13,9 @@
   {{ end }}
   {{ block "main" . }}
   {{ end }}
-
+  {{ if ( .Site.Params.footer.enable ) }}
+    {{ partial "footer/main" . }}
+  {{ end }}
   {{ partial "scripts" . }}
 </body>
 </html>

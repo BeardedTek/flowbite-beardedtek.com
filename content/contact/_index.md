@@ -31,6 +31,4 @@ form:
     enable: true
     method: POST
     action: "https://formspree.io/f/meoanzpy"
-footer:
-    enable: true
 ---

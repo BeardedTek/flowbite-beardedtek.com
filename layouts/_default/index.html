@@ -9,8 +9,6 @@
     {{ end }}
     {{ partial "rates/rates" . }}
 {{ end }}
+{{ .Content }}
 </main>
-{{ if ( .Site.Params.footer.enable ) }}
-    {{ partial "footer/main" . }}
-{{ end }}
 {{ end }}

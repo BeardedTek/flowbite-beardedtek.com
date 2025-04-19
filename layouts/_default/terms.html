@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="px-4 pt-20 pb-4 dark:bg-gray-900">
+  <div class="flex justify-center flex-wrap w-full mx-auto">
+    <div class="px-4 format dark:format-invert text-center">
+      <h3>
+        <a href="/terms">Terms and Conditions</a>
+      </h3>
+    </div>
+    <div class="px-4 format dark:format-invert text-center max-w-xs">
+      <h3>
+        <a href="/privacy">Privacy Policy</a>
+      </h3>
+    </div>
+    <div class="px-4 format dark:format-invert text-center max-w-xs">
+      <h3>
+        <a href="/cookies">Cookie Policy</a>
+      </h3>
+    </div>
+  </div>
+</section>
+<section class="container mx-auto px-4 py-8">
+  
+  <article class="format lg:format-lg dark:format-invert mx-auto">
+    
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</section>
+{{ end }}

@@ -32,16 +32,18 @@ params:
     links:
       - name: About
         href: "/about/"
-      - name: Blog
-        href: "/blog/"
-      - name: Privacy Policy
-        href: "/privacy/"
-      - name: Terms
-        href: "/terms/"
       - name: Support
         href: "/contact?topic=support"
       - name: Contact Us
         href: "/contact"
+      - name: Blog
+        href: "/blog/"
+      - name: Terms
+        href: "/terms/"
+      - name: Privacy Policy
+        href: "/privacy/"
+      - name: Cookie Policy
+        href: "/cookies/"
       - name: "(907) 519-8577"
         href: "tel:9075198577"
 

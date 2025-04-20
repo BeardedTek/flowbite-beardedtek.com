@@ -6,6 +6,8 @@ enableInlineShortcodes: true
 canonifyURLs: true
 
 params:
+  format:
+    date: "January 02, 2006"
   navbar:
     enable: true
     links:
@@ -15,6 +17,8 @@ params:
         link: /rates/
       - name: Contact
         link: /contact/
+      - name: About Us
+        link: /about/
       - name: "(907) 519-8577"
         phone: 19075198577
 

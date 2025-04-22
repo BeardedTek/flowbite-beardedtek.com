@@ -16,6 +16,7 @@
   {{ if ( .Site.Params.footer.enable ) }}
     {{ partial "footer/main" . }}
   {{ end }}
+  {{ partial "cookies/plausible" . }}
   {{ partial "scripts" . }}
 </body>
 </html>

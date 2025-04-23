@@ -8,12 +8,12 @@
 
 <body class="{{ if .Params.white_bg }}bg-white dark:bg-gray-900{{ else }}bg-gray-50 dark:bg-gray-800{{ end }}">{{ end }}
   {{ partial "skippy" . }}
-  {{ if .Site.Params.navbar.enable }}
+  {{ if .Site.Data.navbar.enable }}
     {{ partial "nav/main" . }}
   {{ end }}
   {{ block "main" . }}
   {{ end }}
-  {{ if ( .Site.Params.footer.enable ) }}
+  {{ if ( .Site.Data.footer.enable ) }}
     {{ partial "footer/main" . }}
   {{ end }}
   {{ partial "cookies/plausible" . }}

@@ -8,20 +8,6 @@ canonifyURLs: true
 params:
   format:
     date: "January 02, 2006"
-  navbar:
-    enable: true
-    links:
-      - name: Home
-        link: /
-      - name: Rates
-        link: /rates/
-      - name: Contact
-        link: /contact/
-      - name: About Us
-        link: /about/
-      - name: "(907) 519-8577"
-        phone: 19075198577
-
   logo:
     text: The Bearded Tek
     svg: /images/logo/no-padding.svg
@@ -30,26 +16,6 @@ params:
   homepage: https://beardedtek.com
   authors: William Kenny
   social_image_path: /marketing-ui/demo/images/og-image.jpg
-
-  footer:
-    enable: true
-    links:
-      - name: About
-        href: "/about/"
-      - name: Support
-        href: "/contact?topic=support"
-      - name: Contact Us
-        href: "/contact"
-      - name: Blog
-        href: "/blog/"
-      - name: Terms
-        href: "/terms/"
-      - name: Privacy Policy
-        href: "/privacy/"
-      - name: Cookie Policy
-        href: "/cookies/"
-      - name: "(907) 519-8577"
-        href: "tel:9075198577"
 
 markup:
   goldmark:

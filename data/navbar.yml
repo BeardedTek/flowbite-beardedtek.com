@@ -1,0 +1,12 @@
+enable: true
+links:
+  - name: Home
+    link: /
+  - name: Rates
+    link: /rates/
+  - name: Contact
+    link: /contact/
+  - name: About Us
+    link: /about/
+  - name: "(907) 519-8577"
+    phone: 19075198577

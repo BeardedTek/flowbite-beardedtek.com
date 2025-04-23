@@ -9,7 +9,7 @@
                     </label>
                     <input type="text" name="first-name" id="first-name"
                         class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Bonnie" required>
+                        placeholder="John" required>
                 </div>
 
                 <div>
@@ -18,7 +18,7 @@
                     </label>
                     <input type="text" name="last-name" id="last-name"
                         class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Green" required>
+                        placeholder="Doe" required>
                 </div>
 
                 <div>
@@ -27,7 +27,7 @@
                     </label>
                     <input type="email" name="email" id="email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="name@flowbite.com" required>
+                        placeholder="jdoe@myemail.com" required>
                 </div>
 
                 <div>
@@ -39,12 +39,12 @@
                         placeholder="(907) 123-4567" required>
                 </div>
                 <div class="sm:col-span-2">
-                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Subject
-                    </label>
-                    <input type="text" name="subject" id="subject" 
-                        class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        value="The Bearded Tek Contact Form Submission" required>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+                    <select id="subject" name="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        {{ range $key, $value := .Site.Data.contact.form.subjects }}
+                        <option value="{{ .value }}">{{ .name }}</option>
+                        {{ end }}
+                    </select>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -60,15 +60,15 @@
                         <input type="checkbox" id="terms" required value=""
                             class="w-4 h-4 bg-gray-100 border-gray-300 rounded-sm text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="terms" class="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
-                            By submitting this, you confirm that you have read and agree to
-                            <a href="#" title=""
+                            You confirm that you have read and agree to our
+                            <a href="/terms/" title="Terms and Conditions"
                                 class="font-medium text-gray-900 underline hover:no-underline dark:text-white">
-                                Terms of Service
+                                Terms and Conditions
                             </a>
                             and
-                            <a href="#" title=""
+                            <a href="/privacy/" title="Privacy Policy"
                                 class="font-medium text-gray-900 underline hover:no-underline dark:text-white">
-                                Privacy Statement
+                                Privacy Policy
                             </a>.
                         </label>
                     </div>

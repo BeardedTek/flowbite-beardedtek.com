@@ -10,3 +10,22 @@ form:
   header:
     title: Send Us a Message
     text: Use this form to send us a message.  Generally response times are within 1 hour during business hours.
+  subjects:
+    - name: General Inquiry
+      value: default
+    - name: Support
+      value: support
+    - name: On Site Service
+      value: on-site service
+    - name: Remote Service
+      value: remote service
+    - name: Web Design
+      value: static web design
+    - name: Web Hosting
+      value: static web hosting
+    - name: Privacy Policy
+      value: privacy policy
+    - name: Terms and Conditions
+      value: terms and conditions
+    - name: Cookie Policy
+      value: cookie policy

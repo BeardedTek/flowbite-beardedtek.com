@@ -4,8 +4,8 @@ backend:
   branch: main
   app_id: ca91733b-543f-4506-b2cc-7c6120d20b57
   base_url: https://git.beardedtek.com
-  api_root: /api/v1
-  auth_endpoint: /login/oauth/authorize
+  api_root: https://git.beardedtek.com/api/v1
+  auth_endpoint: https://git.beardedtek.com/login/oauth/authorize
   commit_messages:
     create: 'content: create {{collection}} "{{slug}}"'
     update: 'content: update {{collection}} "{{slug}}"'
@@ -13,9 +13,6 @@ backend:
     uploadMedia: 'media: upload {{path}}'
     deleteMedia: 'media: delete {{path}}'
 
-
-
-local_backend: true
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"

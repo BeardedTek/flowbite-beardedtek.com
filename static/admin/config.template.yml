@@ -3,8 +3,8 @@ backend:
   repo: beardedtek/flowbite-beardedtek.com
   branch: main
   base_url: https://git.beardedtek.com
-  api_root: https://git.beardedtek.com/api/v1
-  auth_endpoint: https://git.beardedtek.com/login/oauth/authorize
+  api_root: /api/v1
+  auth_endpoint: /login/oauth/authorize
   commit_messages:
     create: 'content: create {{collection}} "{{slug}}"'
     update: 'content: update {{collection}} "{{slug}}"'
@@ -16,9 +16,9 @@ auth:
   provider: gitea
   client_id: "__OAUTH_CLIENT_ID__"
   client_secret: "__OAUTH_CLIENT_SECRET__"
-  auth_url: login/oauth/authorize
-  token_url: login/oauth/access_token
-  user_url: api/v1/user
+  auth_url: /login/oauth/authorize
+  token_url: /login/oauth/access_token
+  user_url: /api/v1/user
   enable_pkce: true
   scope: "user"
 

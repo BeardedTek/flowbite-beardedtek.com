@@ -14,8 +14,8 @@ backend:
 
 auth:
   provider: gitea
-  client_id: "${GITEA_CLIENT_ID}"
-  client_secret: "${GITEA_CLIENT_SECRET}"
+  client_id: "__OAUTH_CLIENT_ID__"
+  client_secret: "__OAUTH_CLIENT_SECRET__"
   auth_url: https://git.beardedtek.com/login/oauth/authorize
   token_url: https://git.beardedtek.com/login/oauth/access_token
   user_url: https://git.beardedtek.com/api/v1/user

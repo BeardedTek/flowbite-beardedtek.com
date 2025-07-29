@@ -2,7 +2,7 @@ backend:
   name: gitea
   repo: beardedtek/flowbite-beardedtek.com
   branch: main
-  app_id: ca91733b-543f-4506-b2cc-7c6120d20b57
+  app_id: "ca91733b-543f-4506-b2cc-7c6120d20b57"
   base_url: https://git.beardedtek.com
   api_root: https://git.beardedtek.com/api/v1
   auth_endpoint: https://git.beardedtek.com/login/oauth/authorize
@@ -18,6 +18,16 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "blog"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: Featured Image", name: "thumbnail", widget: "image"}
+      - {Body", name: "body", widget: "markdown"}
+
   - name: "pages"
     label: "Pages"
     folder: "content"

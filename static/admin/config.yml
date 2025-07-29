@@ -6,6 +6,8 @@ backend:
   base_url: https://git.beardedtek.com
   api_root: https://git.beardedtek.com/api/v1
   auth_endpoint: https://git.beardedtek.com/login/oauth/authorize
+  # Add explicit token endpoint for better compatibility
+  token_endpoint: https://git.beardedtek.com/login/oauth/access_token
   commit_messages:
     create: 'content: create {{collection}} "{{slug}}"'
     update: 'content: update {{collection}} "{{slug}}"'

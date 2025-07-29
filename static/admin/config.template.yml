@@ -16,9 +16,9 @@ auth:
   provider: gitea
   client_id: "__OAUTH_CLIENT_ID__"
   client_secret: "__OAUTH_CLIENT_SECRET__"
-  auth_url: https://git.beardedtek.com/login/oauth/authorize
-  token_url: https://git.beardedtek.com/login/oauth/access_token
-  user_url: https://git.beardedtek.com/api/v1/user
+  auth_url: login/oauth/authorize
+  token_url: login/oauth/access_token
+  user_url: api/v1/user
   enable_pkce: true
   scope: "user"
 

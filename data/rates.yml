@@ -4,7 +4,7 @@
       items:
           1:
               name: Commercial
-              desc: We come to you
+              desc: On-Site Support
               price:
                   1:
                       name: First Hour
@@ -35,7 +35,7 @@
                   link: "/contact?topic=on-site service"
           2:
               name: Residential
-              desc: We connect to you
+              desc: On Site Support
               price:
                   1:
                       name: First Hour

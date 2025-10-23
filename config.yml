@@ -12,6 +12,9 @@ params:
     text: The Bearded Tek
     svg: /images/logo/no-padding.svg
     favicon:
+      - /images/logo/favicon-32x32.png
+      - /images/logo/favicon-16x16.png
+  business_license: 2224133
 
   homepage: https://beardedtek.com
   authors: William Kenny

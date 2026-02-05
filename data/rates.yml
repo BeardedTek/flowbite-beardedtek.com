@@ -55,7 +55,7 @@
                       icon: true
                       name: No Cancellation Fee
                       super: 1
-                      note: Must cancel before tech connects
+                      note: Must cancel before tech departs
                   3:
                       icon: true
                       name: 5% Military Discount

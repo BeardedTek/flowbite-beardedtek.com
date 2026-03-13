@@ -3,7 +3,7 @@
           text: Our clear pricing has no hidden fees.  No gotchas in your bill.  Guaranteed.
       items:
           1:
-              name: Commercial
+              name: Residential
               desc: On-Site Support
               price:
                   1:
@@ -12,7 +12,7 @@
                       period:
                   2:
                       name: Addtional Hour
-                      price: 120
+                      price: 80
                       period:
               features:
                   1:
@@ -28,45 +28,14 @@
                   3:
                       icon: true
                       name: 5% Military Discount
-                      super: 2
-                      note: Does not apply to 1st hour
+                      super:
+                      note:
               button:
                   text: Get Started
                   link: "/contact?topic=on-site service"
           2:
               name: Residential
-              desc: On Site Support
-              price:
-                  1:
-                      name: First Hour
-                      price: 50
-                      period:
-                  2:
-                      name: Addtional Hour
-                      price: 80
-                      period:
-              features:
-                  1:
-                      icon: true
-                      name: Minimum Charge $50
-                      super:
-                      note:
-                  2:
-                      icon: true
-                      name: No Cancellation Fee
-                      super: 1
-                      note: Must cancel before tech connects
-                  3:
-                      icon: true
-                      name: 5% Military Discount
-                      super: 2
-                      note: Does not apply to 1st hour
-              button:
-                  text: Get Started
-                  link: "/contact?topic=remote service"
-          3:
-              name: Remote
-              desc: We connect to you
+              desc: Remote Support
               price:
                   1:
                       name: First Hour
@@ -90,40 +59,71 @@
                   3:
                       icon: true
                       name: 5% Military Discount
+                      super:
+                      note:
+              button:
+                  text: Get Started
+                  link: "/contact?topic=remote service"
+          3:
+              name: Commercial
+              desc: On-Site Support
+              price:
+                  1:
+                      name: First Hour
+                      price: 80
+                      period:
+                  2:
+                      name: Addtional Hour
+                      price: 120
+                      period:
+              features:
+                  1:
+                      icon: true
+                      name: Minimum Charge $80
+                      super:
+                      note:
+                  2:
+                      icon: true
+                      name: No Cancellation Fee
+                      super: 1
+                      note: Must cancel before tech departs
+                  3:
+                      icon: true
+                      name: 5% Military Discount
                       super: 2
                       note: Does not apply to 1st hour
               button:
                   text: Get Started
-                  link: "/contact?topic=remote service"
+                  link: "/contact?topic=on-site service"
           4:
-              name: Web Design
-              desc: Static Web Sites
+              name: Commercial
+              desc: Remote Support
               price:
                   1:
-                      name: Template
-                      price: 100
-                      period: "& Up"
+                      name: First Hour
+                      price: 60
+                      period:
                   2:
-                      name: Custom
-                      price: 150
-                      period: "& Up"
+                      name: Addtional Hour
+                      price: 100
+                      period:
               features:
                   1:
+                      icon: true
+                      name: Minimum Charge $60
+                      super:
+                      note:
+                  2:
+                      icon: true
+                      name: No Cancellation Fee
+                      super: 1
+                      note: Must cancel before tech connects
+                  3:
                       icon: true
                       name: 5% Military Discount
                       super:
                       note:
-                  2:
-                      icon: true
-                      name: 10% Off Hosting
-                      super: 1
-                      note: One year commitment required
-                  3:
-                      icon: false
-                      name:
-                      super:
-                      note:
               button:
                   text: Get Started
-                  link: "/contact?topic=static web design"
+                  link: "/contact?topic=remote service"
                   

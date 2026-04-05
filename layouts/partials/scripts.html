@@ -2,3 +2,36 @@
 <script src="{{ .Site.BaseURL }}/js/vendors.bundle.js"></script>
 <script defer data-domain="beardedtek.com" src="https://plausible.beardedtek.org/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+{{- $.Scratch.Set "anyCal" false -}}
+{{- range site.Data.rates.items -}}
+  {{- with .cal }}{{- $.Scratch.Set "anyCal" true -}}{{- end -}}
+{{- end -}}
+{{- if $.Scratch.Get "anyCal" -}}
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://cal.beardedtek.com/embed/embed.js", "init");
+{{ range site.Data.rates.items }}
+{{ with .cal }}
+{{ if and .service .url }}
+{{ $initKey := printf "cal-init-%s" .service }}
+{{ if not ($.Scratch.Get $initKey) }}
+{{ $.Scratch.Set $initKey true }}
+Cal("init", {{ .service | jsonify | safeJS }}, {origin: {{ .url | jsonify | safeJS }}});
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ range site.Data.rates.items }}
+{{ with .cal }}
+{{ if .service }}
+{{ $uiKey := printf "cal-ui-%s" .service }}
+{{ if not ($.Scratch.Get $uiKey) }}
+{{ $.Scratch.Set $uiKey true }}
+Cal.ns[{{ .service | jsonify | safeJS }}]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#13276c"},"dark":{"cal-brand":"#3b82f6"}},"hideEventTypeDetails":false,"layout":"month_view"});
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+</script>
+<!-- Cal element-click embed code ends -->
+{{- end -}}

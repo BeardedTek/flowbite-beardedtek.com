@@ -33,6 +33,14 @@
               button:
                   text: Get Started
                   link: "/contact?topic=on-site service"
+              cal:
+                  service: on-site-support
+                  type: on-site-support
+                  url: https://cal.beardedtek.com
+                  button_text: Make an appointment
+                  config:
+                      layout: month_view
+                      useSlotsViewOnSmallScreen: "true"
           2:
               name: Residential
               desc: Remote Support
@@ -64,6 +72,14 @@
               button:
                   text: Get Started
                   link: "/contact?topic=remote service"
+              cal:
+                  service: remote-support
+                  type: remote-support
+                  url: https://cal.beardedtek.com
+                  button_text: Make an appointment
+                  config:
+                      layout: month_view
+                      useSlotsViewOnSmallScreen: "true"
           3:
               name: Commercial
               desc: On-Site Support
@@ -90,11 +106,19 @@
                   3:
                       icon: true
                       name: 5% Military Discount
-                      super: 2
-                      note: Does not apply to 1st hour
+                      super:
+                      note:
               button:
                   text: Get Started
                   link: "/contact?topic=on-site service"
+              cal:
+                  service: on-site-support
+                  type: on-site-support
+                  url: https://cal.beardedtek.com
+                  button_text: Make an appointment
+                  config:
+                      layout: month_view
+                      useSlotsViewOnSmallScreen: "true"
           4:
               name: Commercial
               desc: Remote Support
@@ -126,4 +150,12 @@
               button:
                   text: Get Started
                   link: "/contact?topic=remote service"
-                  
+              cal:
+                  service: remote-support
+                  type: remote-support
+                  url: https://cal.beardedtek.com
+                  button_text: Make an appointment
+                  config:
+                      layout: month_view
+                      useSlotsViewOnSmallScreen: "true"
+

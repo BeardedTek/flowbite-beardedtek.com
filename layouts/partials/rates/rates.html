@@ -1,6 +1,6 @@
 <section class="pt-6 pb-6 dark:bg-gray-900">
   <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-8">
-    {{ range $index, $element := .Site.Data.rates.items }}
+    {{ range $index, $element := site.Data.rates.items }}
     <!-- Pricing Card -->
     <div
       class="drop-shadow-xl dark:drop-shadow-xl flex flex-col max-w-lg p-4 mx-auto text-center text-gray-900 bg-white border border-gray-200 rounded-lg shadow-xs dark:border-gray-600 xl:p-8 dark:text-white dark:bg-gray-700">
@@ -53,16 +53,26 @@
       </ul>
       {{ end }}
       </div>
-      {{ if ( .button ) }}
-      <a href="{{ if ( .button.link ) }}{{ .button.link }}{{else}}#{{end}}"
-        class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900">
-        {{ if ( .button.text ) }}
+      {{- $ctaClass := "cursor-pointer text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900" -}}
+      {{ if and .cal .cal.service .cal.type .cal.url }}
+      <button type="button"
+        class="{{ $ctaClass }}"
+        data-cal-namespace="{{ .cal.service }}"
+        data-cal-link="{{ printf "beardedtek/%s" .cal.type }}"
+        data-cal-origin="{{ .cal.url }}"
+        data-cal-config='{{ if .cal.config }}{{ .cal.config | jsonify }}{{ else }}{{ dict | jsonify }}{{ end }}'>
+        {{- .cal.button_text | default .button.text | default "Get Started" -}}
+      </button>
+      {{ else if .button }}
+      <a href="{{ if .button.link }}{{ .button.link }}{{ else }}#{{ end }}"
+        class="{{ $ctaClass }}">
+        {{ if .button.text }}
           {{ .button.text }}
-        {{ else}}
+        {{ else }}
           Get Started
-        {{ end}}
-      {{ end }}
+        {{ end }}
       </a>
+      {{ end }}
         <div class="max-w-xs pt-4 text-left">
           {{ range $index, $element := .features }}
             {{ if ( .super ) }}

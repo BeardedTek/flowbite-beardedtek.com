@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/contact/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/cookies/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/privacy/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/terms/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/404/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/rates/</loc>
+    <lastmod>2025-04-15T17:09:20+06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2025-04-15T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/</loc>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/article/</loc>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/homepage/</loc>
+  </url>
+  <url>
+    <loc>http://localhost:1313/oldindex/</loc>
+  </url>
+</urlset>

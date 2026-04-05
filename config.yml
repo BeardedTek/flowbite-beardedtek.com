@@ -1,7 +1,7 @@
 ---
 languageCode: en
 title: "The Bearded Tek | Your IT Handyman"
-baseURL: http://localhost:1313
+baseURL: https://beardedtek.com/
 enableInlineShortcodes: true
 canonifyURLs: true
 

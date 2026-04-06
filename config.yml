@@ -3,7 +3,8 @@ languageCode: en
 title: "The Bearded Tek | Your IT Handyman"
 baseURL: https://beardedtek.com/
 enableInlineShortcodes: true
-canonifyURLs: true
+# Keep false so /rates/ etc. stay root-relative; browsers resolve them to the current host (localhost during hugo server).
+canonifyURLs: false
 
 params:
   format:

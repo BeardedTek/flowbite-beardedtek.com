@@ -9,6 +9,12 @@
     {{ end }}
     {{ partial "rates/rates" . }}
 {{ end }}
+{{ if .Page.Params.servicePlans.enable }}
+    {{ if .Page.Params.servicePlans.heading.enable }}
+        {{ partial "service_plans/heading" . }}
+    {{ end }}
+    {{ partial "service_plans/cards" . }}
+{{ end }}
 {{ .Content }}
 </main>
 {{ end }}

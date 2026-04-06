@@ -1,10 +1,16 @@
-<script src="{{ .Site.BaseURL }}/js/app.bundle.js"></script>
-<script src="{{ .Site.BaseURL }}/js/vendors.bundle.js"></script>
+<script src="{{ "js/app.bundle.js" | relURL }}"></script>
+<script src="{{ "js/vendors.bundle.js" | relURL }}"></script>
 <script defer data-domain="beardedtek.com" src="https://plausible.beardedtek.org/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 {{- $.Scratch.Set "anyCal" false -}}
 {{- range site.Data.rates.items -}}
   {{- with .cal }}{{- $.Scratch.Set "anyCal" true -}}{{- end -}}
+{{- end -}}
+{{- with site.Data.navbar.appointment_cal -}}
+  {{- if and .service .url }}{{- $.Scratch.Set "anyCal" true -}}{{- end -}}
+{{- end -}}
+{{- with site.Data.service_plans.heading_cal -}}
+  {{- if and .service .url }}{{- $.Scratch.Set "anyCal" true -}}{{- end -}}
 {{- end -}}
 {{- if $.Scratch.Get "anyCal" -}}
 <!-- Cal element-click embed code begins -->
@@ -30,6 +36,18 @@ Cal("init", {{ .service | jsonify | safeJS }}, {origin: {{ .url | jsonify | safe
 Cal.ns[{{ .service | jsonify | safeJS }}]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#13276c"},"dark":{"cal-brand":"#3b82f6"}},"hideEventTypeDetails":false,"layout":"month_view"});
 {{ end }}
 {{ end }}
+{{ end }}
+{{ end }}
+{{ with site.Data.navbar.appointment_cal }}
+{{ if and .service .url }}
+Cal("init", {{ .service | jsonify | safeJS }}, {origin: {{ .url | jsonify | safeJS }}});
+Cal.ns[{{ .service | jsonify | safeJS }}]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#13276c"},"dark":{"cal-brand":"#3b82f6"}},"hideEventTypeDetails":false,"layout":"month_view"});
+{{ end }}
+{{ end }}
+{{ with site.Data.service_plans.heading_cal }}
+{{ if and .service .url }}
+Cal("init", {{ .service | jsonify | safeJS }}, {origin: {{ .url | jsonify | safeJS }}});
+Cal.ns[{{ .service | jsonify | safeJS }}]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#13276c"},"dark":{"cal-brand":"#3b82f6"}},"hideEventTypeDetails":false,"layout":"month_view"});
 {{ end }}
 {{ end }}
 </script>

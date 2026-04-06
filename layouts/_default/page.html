@@ -1,8 +1,10 @@
 {{ define "main" }}
-<section class="container mx-auto px-4 pt-20 py-8">
-  <article class="format lg:format-lg dark:format-invert">
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
+{{ partial "page_heading" (dict "title" .Title "text" .Description) }}
+<section class="bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 py-8">
+    <article class="format lg:format-lg dark:format-invert">
+      {{ .Content }}
+    </article>
+  </div>
 </section>
 {{ end }}

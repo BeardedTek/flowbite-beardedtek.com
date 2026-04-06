@@ -37,7 +37,7 @@
                   service: on-site-support
                   type: on-site-support
                   url: https://cal.beardedtek.com
-                  button_text: Make an appointment
+                  button_text: Make an Appointment
                   config:
                       layout: month_view
                       useSlotsViewOnSmallScreen: "true"
@@ -76,7 +76,7 @@
                   service: remote-support
                   type: remote-support
                   url: https://cal.beardedtek.com
-                  button_text: Make an appointment
+                  button_text: Make an Appointment
                   config:
                       layout: month_view
                       useSlotsViewOnSmallScreen: "true"
@@ -115,7 +115,7 @@
                   service: on-site-support
                   type: on-site-support
                   url: https://cal.beardedtek.com
-                  button_text: Make an appointment
+                  button_text: Make an Appointment
                   config:
                       layout: month_view
                       useSlotsViewOnSmallScreen: "true"
@@ -154,7 +154,7 @@
                   service: remote-support
                   type: remote-support
                   url: https://cal.beardedtek.com
-                  button_text: Make an appointment
+                  button_text: Make an Appointment
                   config:
                       layout: month_view
                       useSlotsViewOnSmallScreen: "true"

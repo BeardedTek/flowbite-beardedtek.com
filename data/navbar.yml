@@ -1,12 +1,18 @@
 enable: true
+appointment_cal:
+  service: navbar-appointment
+  link: beardedtek
+  url: https://cal.beardedtek.com
+  button_text: Make an Appointment
+  config:
+    layout: month_view
+    useSlotsViewOnSmallScreen: "true"
 links:
   - name: Home
     link: /
   - name: Rates
     link: /rates/
-  - name: Contact
-    link: /contact/
-  - name: About Us
-    link: /about/
+  - name: Monthly Contracts
+    link: /monthly-contracts/
   - name: "(907) 519-8577"
     phone: 19075198577

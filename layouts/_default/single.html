@@ -1,14 +1,10 @@
 {{ define "main" }}
-<section class="px-4 pt-20 pb-4 dark:bg-gray-900">
-  <div class="format dark:format-invert w-full mx-auto text-center">
-    <div class="pb-2 kanit-bold text-5xl text-white">{{ .Title }}</div>
-    <span class="kanit-regular-italic text-md">Updated on {{ .Date.Format .Site.Params.format.date }}.</span>
+{{ partial "page_heading" (dict "title" .Title "text" (printf "Updated on %s" (.Date.Format .Site.Params.format.date))) }}
+<section class="bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 py-8">
+    <section class="format lg:format-lg dark:format-invert mx-auto">
+      {{ .Content }}
+    </section>
   </div>
-</section>
-<section class="container mx-auto px-4 py-8">
-  
-  <section class="format lg:format-lg dark:format-invert mx-auto">
-    {{ .Content }}
-  </section>
 </section>
 {{ end }}

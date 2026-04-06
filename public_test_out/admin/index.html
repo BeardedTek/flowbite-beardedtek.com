@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms/dist/decap-cms.js"></script>
+    <script>
+      // Wait for the script to load before initializing
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, checking for DecapCMS...');
+        if (typeof DecapCMS !== 'undefined') {
+          console.log('DecapCMS found, initializing...');
+          DecapCMS.init({ config: '/admin/config.yml' });
+        } else {
+          console.log('DecapCMS not found, waiting...');
+          // Fallback: wait a bit more for the script to load
+          setTimeout(function() {
+            if (typeof DecapCMS !== 'undefined') {
+              console.log('DecapCMS found after timeout, initializing...');
+              DecapCMS.init({ config: '/admin/config.yml' });
+            } else {
+              console.error('DecapCMS failed to load');
+            }
+          }, 1000);
+        }
+      });
+    </script>
+  </body>
+</html>

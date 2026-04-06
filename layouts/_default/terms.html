@@ -1,29 +1,27 @@
 {{ define "main" }}
-<section class="px-4 pt-20 pb-4 dark:bg-gray-900">
-  <div class="flex justify-center flex-wrap w-full mx-auto">
-    <div class="px-4 format dark:format-invert text-center">
-      <h3>
-        <a href="/terms">Terms and Conditions</a>
-      </h3>
+{{ partial "page_heading" (dict "title" .Title "text" "") }}
+<section class="bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex justify-center flex-wrap w-full mx-auto gap-6 pb-6 border-b border-gray-200 dark:border-gray-600 mb-8">
+      <div class="px-4 format dark:format-invert text-center">
+        <h3 class="text-lg">
+          <a href="/terms">Terms and Conditions</a>
+        </h3>
+      </div>
+      <div class="px-4 format dark:format-invert text-center max-w-xs">
+        <h3 class="text-lg">
+          <a href="/privacy">Privacy Policy</a>
+        </h3>
+      </div>
+      <div class="px-4 format dark:format-invert text-center max-w-xs">
+        <h3 class="text-lg">
+          <a href="/cookies">Cookie Policy</a>
+        </h3>
+      </div>
     </div>
-    <div class="px-4 format dark:format-invert text-center max-w-xs">
-      <h3>
-        <a href="/privacy">Privacy Policy</a>
-      </h3>
-    </div>
-    <div class="px-4 format dark:format-invert text-center max-w-xs">
-      <h3>
-        <a href="/cookies">Cookie Policy</a>
-      </h3>
-    </div>
+    <article class="format lg:format-lg dark:format-invert mx-auto">
+      {{ .Content }}
+    </article>
   </div>
-</section>
-<section class="container mx-auto px-4 py-8">
-  
-  <article class="format lg:format-lg dark:format-invert mx-auto">
-    
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
 </section>
 {{ end }}

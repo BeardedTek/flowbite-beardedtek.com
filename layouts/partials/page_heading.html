@@ -10,9 +10,20 @@
         {{ .text }}
       </p>
       {{ end }}
-      {{ with .cal }}
-      {{ if and .service .url .link }}
-      <div class="mt-8 flex justify-center">
+      {{ if or .sheet .cal }}
+      <div class="mt-8 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+        {{ with .sheet }}
+        {{ if .pdf_rel }}
+        <a href="{{ relURL .pdf_rel }}"
+          class="inline-block text-primary-700 bg-white border border-primary-700 hover:bg-gray-50 focus:ring-4 focus:ring-primary-200 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:text-primary-400 dark:border-primary-500 dark:hover:bg-gray-700 dark:focus:ring-primary-900"
+          target="_blank"
+          rel="noopener noreferrer">
+          {{- .button_text | default "Download PDF" -}}
+        </a>
+        {{ end }}
+        {{ end }}
+        {{ with .cal }}
+        {{ if and .service .url .link }}
         <button type="button"
           class="inline-block cursor-pointer text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900"
           data-cal-namespace="{{ .service }}"
@@ -21,8 +32,9 @@
           data-cal-config='{{ if .config }}{{ .config | jsonify }}{{ else }}{{ dict | jsonify }}{{ end }}'>
           {{- .button_text | default "Book" -}}
         </button>
+        {{ end }}
+        {{ end }}
       </div>
-      {{ end }}
       {{ end }}
     </div>
   </div>

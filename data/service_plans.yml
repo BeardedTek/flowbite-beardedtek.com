@@ -6,6 +6,9 @@ heading_cal:
     config:
         layout: month_view
         useSlotsViewOnSmallScreen: "true"
+heading_sheet:
+    pdf_rel: pdf/monthly-contracts-flyer.pdf
+    button_text: Download Service Plan Overview
 items:
     1:
         name: Rollover Service

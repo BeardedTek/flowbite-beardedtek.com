@@ -14,10 +14,12 @@
 		"start": "run-p start:dev:*",
 		"start:dev:hugo": "hugo server -D --watch",
 		"start:dev:webpack": "webpack --mode=development --watch",
-		"build": "NODE_ENV=production && run-s build:webpack build:hugo",
+		"build": "run-s build:webpack build:hugo pdf:flyer:posthugo",
 		"build:hugo": "hugo --destination=./.build",
 		"build:webpack": "webpack --mode=production",
-		"build:styles": "npx tailwindcss -i ./src/app.css -o ./dist/css/flowbite.css"
+		"build:styles": "npx tailwindcss -i ./src/app.css -o ./dist/css/flowbite.css",
+		"pdf:flyer": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/gen-monthly-flyer-pdf.ps1",
+		"pdf:flyer:posthugo": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/gen-monthly-flyer-pdf.ps1 -SkipHugo"
 	},
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.1.4",
@@ -30,6 +32,7 @@
 		"postcss": "^8.5.1",
 		"postcss-loader": "^8.1.1",
 		"postcss-preset-env": "^6.7.0",
+		"qrcode": "^1.5.4",
 		"source-map-loader": "^3.0.0",
 		"style-loader": "^3.3.0",
 		"tailwindcss": "^4.1.4",

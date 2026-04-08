@@ -40,7 +40,7 @@ items:
     3:
         name: Monitoring
         detail_slug: monitoring
-        desc: Always on monitoring to keep your running
+        desc: Always on monitoring to keep your business running
         table:
             headers:
                 - "# Devices"

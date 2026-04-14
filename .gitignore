@@ -1,5 +1,6 @@
 # Generated files by hugo
 /public/
+/contractdesk/public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -9,8 +10,15 @@ hugo.exe
 hugo.darwin
 hugo.linux
 
-# Temporary lock file while building
-/.hugo_build.lock
+# Temporary lock file while Hugo builds (any directory)
+.hugo_build.lock
+
+# Python
+**/__pycache__/
+*.pyc
+
+# LibreOffice (lock file while a document is open)
+.~lock.*
 
 # node modules
 node_modules

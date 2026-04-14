@@ -1,0 +1,67 @@
+# Mirror of repo root data/service_plans.yml — update both if tiers change.
+heading_cal:
+    service: monthly-contracts-meeting
+    link: beardedtek/meeting
+    url: https://cal.beardedtek.com
+    button_text: Discuss Service Contracts
+    config:
+        layout: month_view
+        useSlotsViewOnSmallScreen: "true"
+heading_sheet:
+    pdf_rel: pdf/monthly-contracts-flyer.pdf
+    button_text: Download Service Plan Overview
+items:
+    1:
+        name: Rollover Service
+        detail_slug: rollover
+        desc: Service hours when you need them most
+        table:
+            headers:
+                - Hours
+                - Monthly
+                - Extra hr
+            rows:
+                - ["1", "$50", "$70"]
+                - ["2", "$100", "$60"]
+                - ["3", "$150", "$50"]
+                - ["4+", "Call Us", ""]
+    2:
+        name: Backups
+        detail_slug: backups
+        includes: Off-Site Backups with In-Person Support
+        table:
+            headers:
+                - "# Devices"
+                - Monthly Cost
+            rows:
+                - ["1", "$15"]
+                - ["2", "$25"]
+                - ["3", "$35"]
+                - ["4+", "Call Us"]
+    3:
+        name: Monitoring
+        detail_slug: monitoring
+        desc: Always on monitoring to keep your business running
+        table:
+            headers:
+                - "# Devices"
+                - Monthly Cost
+            rows:
+                - ["1-2", "$40"]
+                - ["3-5", "$70"]
+                - ["6-9", "$100"]
+                - ["10+", "Call Us"]
+    4:
+        name: All Inclusive
+        detail_slug: all-inclusive
+        desc: Bundle services and save
+        table:
+            headers:
+                - Hours
+                - Devices
+                - Monthly
+            rows:
+                - ["1", "1-2", "$85"]
+                - ["2", "1-2", "$145"]
+                - ["3", "3-4", "$195"]
+                - ["4+", "5+", "Call Us"]

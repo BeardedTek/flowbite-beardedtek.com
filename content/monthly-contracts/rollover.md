@@ -7,6 +7,8 @@ layout: page
 
 [Back to Monthly Contracts](/monthly-contracts/)
 
+Monthly plans overview: [download the PDF](/pdf/monthly-contracts-flyer.pdf).
+
 A rollover plan is a straightforward way to budget for IT help: you pay a set amount each month for a block of support time. If you do not use it all, those hours stay on your side of the ledger for up to three months, so a quiet month does not mean lost value.
 
 ## What this covers

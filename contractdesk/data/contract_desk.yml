@@ -1,0 +1,106 @@
+subsections:
+    rollover: |
+        ROLLOVER SERVICE
+
+        Prepaid support hours for the selected tier, given as credits on Client's account and applied to day-to-day
+        assistance agreed in advance (for example on-site visits, remote troubleshooting, and routine upkeep).
+        Unused hours may roll forward for up to three consecutive months as stated in the Rollover Policy section of
+        this Agreement. Client may review balance and usage in the customer portal. Visits and calls are coordinated
+        during regular business hours unless otherwise agreed. After-hours emergencies are billed at one and one-half
+        times the normal rate where this Agreement says so. If Client needs more time than the plan includes, extra
+        work is billed at the reduced hourly rates tied to that service level. Hardware, software licenses, large
+        one-off projects, and work outside the written scope are not included unless separately agreed.
+
+        More information: https://beardedtek.com/monthly-contracts/rollover/
+    backups: |
+        BACKUPS (OFF-SITE)
+
+        Automatic encrypted off-site backups for covered computers, with storage hosted in Alaska and in-person
+        support when Client needs data restored. Snapshots are point-in-time copies on a schedule; retention keeps
+        8 hourly snapshots, 7 daily, 4 weekly, 1 monthly, and 1 yearly snapshot layer. Data is encrypted in transit and
+        at rest. When recovery is needed, Service Provider helps Client choose the right snapshot and restore what is
+        needed. Storage beyond the plan tier, legal-hold archiving, and deep application-specific tuning without a
+        separate scope are not included unless separately agreed.
+
+        More information: https://beardedtek.com/monthly-contracts/backups/
+    monitoring: |
+        MONITORING (MESH AND CONTROLR)
+
+        Covered systems join a private Nebula mesh VPN that Service Provider designs and operates with Nebula
+        Commander, so monitoring and remote-assistance traffic uses that encrypted overlay instead of ad hoc
+        public-internet screen sharing. ControlR agents and dashboard visibility apply to covered devices; remote
+        diagnostics and hands-on help use the same stack where the plan includes it, with sessions deliberate,
+        logged, and governed by this Agreement. Round-the-clock NOC staffing, SOC-style threat hunting, and deep APM
+        for custom software without a separate scope are not included unless separately agreed.
+
+        More information: https://beardedtek.com/monthly-contracts/monitoring/
+    all_inclusive: |
+        ALL INCLUSIVE (BUNDLE)
+
+        When All Inclusive is selected on the Monthly Service Selection, this Agreement covers the bundled combination only: prepaid support
+        hours, off-site backups for the covered device count in that tier row, and monitoring with mesh-backed remote
+        access for the device range in that row. Scope matches the Rollover, Backups, and Monitoring descriptions on
+        beardedtek.com when those services are purchased separately. Bundled tiers are discounted more than twenty-five
+        percent versus the same components at published Monthly Contracts list prices. Hardware, software, large
+        projects, and after-hours multipliers follow this Agreement and those detail pages where not bundled.
+
+        More information: https://beardedtek.com/monthly-contracts/all-inclusive/
+
+# Static sections §2–§15
+legal:
+    - number: 2
+      title: Business Hours
+      body: |
+        Unless otherwise agreed in writing, work is generally performed during normal business hours. After-hours or emergency work may be billed at different rates if stated in this Agreement or confirmed in writing.
+    - number: 3
+      title: Monthly Service Plan
+      body: |
+        Client agrees to pay recurring monthly fees for each service line Client selects in the Monthly Service Selection above, at the rates shown there (including amounts Client enters in the price fields), unless a different amount is agreed in writing before the Effective Date. A Rollover selection establishes prepaid support hours and the extra-hour labor rates shown for that tier. Backups and Monitoring selections establish covered device counts or endpoint tiers for those services. An All Inclusive selection covers the bundled combination shown for that tier; bundled components are priced together unless Service Provider agrees otherwise in writing.
+    - number: 4
+      title: Rollover Policy
+      body: |
+        Unused Monthly Hours will roll over for up to three (3) consecutive months. Hours older than three (3) months will expire and be removed from the Client's balance. The maximum accumulated balance cannot exceed three (3) months of unused hours unless otherwise agreed in writing. Hours are deducted from the oldest available balance first.
+    - number: 5
+      title: Backups, monitoring, and All Inclusive
+      body: |
+        The categories in section 1 and the Monthly Contract detail pages on beardedtek.com referenced in section 1 control what is included when Client selects Backups, Monitoring, or All Inclusive in the Monthly Service Selection. Those pages are incorporated by reference as they read on the Effective Date. If the Monthly Service Selection, this Agreement, and those detail pages ever conflict on scope, the signed Agreement controls. Only categories Client selects in the Monthly Service Selection are included under this Agreement unless added later in a signed writing.
+    - number: 6
+      title: Billing and Payment
+      body: |
+        Client authorizes automatic monthly billing via credit card. Billing will occur on the 15th of each month through Service Provider's invoicing system. Payments are processed securely via Stripe. Failure to process payment may result in suspension of services until payment is resolved.
+    - number: 7
+      title: Rates for Additional Services
+      body: |
+        Any Rollover services exceeding the available balance of hours will be billed at the additional labor rates shown for Client's selected Rollover tier in section 1 (and reflected in the selection summary), unless a different rate is stated in this Agreement or agreed in writing. For plans without a Rollover component, additional services are billed as agreed in writing. Additional charges will be invoiced separately and are due upon receipt unless otherwise agreed.
+    - number: 8
+      title: Scheduling and Response Time
+      body: |
+        Service Provider will make reasonable efforts to respond to requests in a timely manner. Response times may vary based on workload, priority, and service level agreements if applicable. Emergency or after-hours support may incur additional charges.
+    - number: 9
+      title: Term and Termination
+      body: |
+        This Agreement operates on a month-to-month basis. Either party may terminate this Agreement with 30 days written notice. Upon termination: Any unused hours remaining within the valid rollover period may be used during the notice period. No refunds will be issued for unused hours.
+    - number: 10
+      title: Client Responsibilities
+      body: |
+        Client agrees to: Provide necessary access to systems, equipment, and networks; maintain valid backups of critical data; ensure a safe working environment for on-site visits.
+    - number: 11
+      title: Limitation of Liability
+      body: |
+        Service Provider shall not be liable for: data loss, business interruption, or consequential damages; issues caused by third-party services, hardware failures, or pre-existing conditions. Client acknowledges that IT services involve inherent risks.
+    - number: 12
+      title: Confidentiality
+      body: |
+        Both parties agree to maintain confidentiality of any sensitive or proprietary information obtained during the course of this Agreement.
+    - number: 13
+      title: Governing Law
+      body: |
+        This Agreement shall be governed by the laws of the State of Alaska.
+    - number: 14
+      title: Entire Agreement
+      body: |
+        This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements or understandings.
+    - number: 15
+      title: Acceptance
+      body: |
+        By signing below, both parties agree to the terms of this Agreement.

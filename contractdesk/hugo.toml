@@ -1,0 +1,15 @@
+# Internal-only contract drafting UI. Run from repo root:
+#   hugo server --source contractdesk
+# Default port 1314 avoids clashing with the main site (often 1313).
+baseURL = "http://127.0.0.1:1314/"
+languageCode = "en-us"
+title = "Contract Desk (internal)"
+
+enableRobotsTXT = false
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[server]
+port = 1314

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.152.2">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contract Desk (internal)</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --border: #2d3a4d;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --accent: #5b9fd4;
+      --contract-bg: #fff;
+      --contract-ink: #111;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      padding: 0.65rem 1rem;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+    }
+    .toolbar strong { color: var(--accent); }
+    .toolbar button {
+      cursor: pointer;
+      background: var(--accent);
+      color: #0a0e14;
+      border: none;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .toolbar button:hover { filter: brightness(1.08); }
+    .wrap {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    h1.page-title { font-size: 1.35rem; margin: 0 0 0.25rem; }
+    .sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1100px) {
+      .grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: start; }
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+    .card .desc, .card .includes { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.75rem; }
+    table.plan {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    table.plan th, table.plan td {
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.45rem;
+      text-align: left;
+    }
+    table.plan th { background: rgba(0,0,0,.25); color: var(--muted); font-weight: 600; }
+    table.plan input[type="text"] {
+      width: 100%;
+      min-width: 4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.25rem 0.35rem;
+      border-radius: 4px;
+    }
+    table.plan input[type="checkbox"] { width: 1rem; height: 1rem; accent-color: var(--accent); }
+    .contract-sheet {
+      background: var(--contract-bg);
+      color: var(--contract-ink);
+      padding: 1.5rem 1.75rem 2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11pt;
+    }
+    .contract-sheet h1 {
+      font-size: 1.35rem;
+      text-align: center;
+      margin: 0 0 1rem;
+    }
+    .contract-sheet .party-line { margin: 0.35rem 0; }
+    .contract-sheet label { font-family: system-ui, sans-serif; font-size: 0.75rem; color: #444; display: block; margin-top: 0.5rem; }
+    .contract-sheet input.inline {
+      font: inherit;
+      border: none;
+      border-bottom: 1px solid #333;
+      width: 100%;
+      max-width: 28rem;
+      padding: 0.15rem 0;
+      background: transparent;
+    }
+    .contract-sheet h2.section {
+      font-size: 1.05rem;
+      margin: 1.15rem 0 0.5rem;
+      font-family: Georgia, serif;
+    }
+    .contract-sheet .block {
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+    }
+    .contract-sheet .legal-body { margin: 0.35rem 0 0.75rem; white-space: pre-wrap; }
+    .selection-heading {
+      font-family: system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 1rem 0 0.5rem;
+      color: #1a1a1a;
+    }
+    @media print {
+      body { background: #fff; color: #000; }
+      .no-print { display: none !important; }
+      .wrap { max-width: none; padding: 0; }
+      .grid { display: block; }
+      .card {
+        break-inside: avoid;
+        border: 1px solid #999;
+        background: #fff;
+        color: #000;
+      }
+      table.plan th { color: #333; background: #eee; }
+      table.plan input { border: 1px solid #ccc; color: #000; background: #fff; }
+      .contract-sheet {
+        border: none;
+        padding: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar no-print">
+    <strong>Contract Desk (internal)</strong>
+    <span style="color:var(--muted);font-size:.85rem;">Local only — not deployed</span>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <div class="wrap">
+    <h1 class="page-title">Rollover agreement draft</h1>
+    <p class="sub no-print">Select tiers, edit amounts, then print. Section 1 updates from your selection.</p>
+
+    <div class="grid">
+      <div class="selection-column no-print"><div class="card">
+          <h2>Rollover Service</h2>
+          <p class="desc">Service hours when you need them most</p>
+          <table class="plan">
+            <thead><tr>
+              <th></th><th>Hours</th><th>Monthly</th><th>Extra hr</th>
+              <th>Quote</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" id="acc_rollover_r0" data-sync></td>
+                <td>1</td>
+                <td><input type="text" id="amt_rollover_r0_p0" value="$50" data-sync></td>
+                <td><input type="text" id="amt_rollover_r0_p1" value="$70" data-sync></td>
+                <td><input type="text" id="amt_rollover_r0_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_rollover_r1" data-sync></td>
+                <td>2</td>
+                <td><input type="text" id="amt_rollover_r1_p0" value="$100" data-sync></td>
+                <td><input type="text" id="amt_rollover_r1_p1" value="$60" data-sync></td>
+                <td><input type="text" id="amt_rollover_r1_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_rollover_r2" data-sync></td>
+                <td>3</td>
+                <td><input type="text" id="amt_rollover_r2_p0" value="$150" data-sync></td>
+                <td><input type="text" id="amt_rollover_r2_p1" value="$50" data-sync></td>
+                <td><input type="text" id="amt_rollover_r2_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_rollover_r3" data-sync></td>
+                <td>4&#43;</td>
+                <td><input type="text" id="amt_rollover_r3_p0" value="Call Us" data-sync></td>
+                <td><input type="text" id="amt_rollover_r3_p1" value="" data-sync></td>
+                <td><input type="text" id="amt_rollover_r3_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><div class="card">
+          <h2>Backups</h2>
+          <p class="includes">Off-Site Backups with In-Person Support</p>
+          <table class="plan">
+            <thead><tr><th></th><th># Devices</th><th>Monthly Cost</th><th>Quote</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" id="acc_backups_r0" data-sync></td>
+                <td>1</td>
+                <td><input type="text" id="amt_backups_r0_p0" value="$15" data-sync></td>
+                <td><input type="text" id="amt_backups_r0_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_backups_r1" data-sync></td>
+                <td>2</td>
+                <td><input type="text" id="amt_backups_r1_p0" value="$25" data-sync></td>
+                <td><input type="text" id="amt_backups_r1_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_backups_r2" data-sync></td>
+                <td>3</td>
+                <td><input type="text" id="amt_backups_r2_p0" value="$35" data-sync></td>
+                <td><input type="text" id="amt_backups_r2_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_backups_r3" data-sync></td>
+                <td>4&#43;</td>
+                <td><input type="text" id="amt_backups_r3_p0" value="Call Us" data-sync></td>
+                <td><input type="text" id="amt_backups_r3_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><div class="card">
+          <h2>Monitoring</h2>
+          <p class="desc">Always on monitoring to keep your business running</p>
+          <table class="plan">
+            <thead><tr><th></th><th># Devices</th><th>Monthly Cost</th><th>Quote</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" id="acc_mon_r0" data-sync></td>
+                <td>1-2</td>
+                <td><input type="text" id="amt_mon_r0_p0" value="$40" data-sync></td>
+                <td><input type="text" id="amt_mon_r0_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_mon_r1" data-sync></td>
+                <td>3-5</td>
+                <td><input type="text" id="amt_mon_r1_p0" value="$70" data-sync></td>
+                <td><input type="text" id="amt_mon_r1_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_mon_r2" data-sync></td>
+                <td>6-9</td>
+                <td><input type="text" id="amt_mon_r2_p0" value="$100" data-sync></td>
+                <td><input type="text" id="amt_mon_r2_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_mon_r3" data-sync></td>
+                <td>10&#43;</td>
+                <td><input type="text" id="amt_mon_r3_p0" value="Call Us" data-sync></td>
+                <td><input type="text" id="amt_mon_r3_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><div class="card">
+          <h2>All Inclusive</h2>
+          <p class="desc">Bundle services and save</p>
+          <table class="plan">
+            <thead><tr><th></th><th>Hours</th><th>Devices</th><th>Monthly</th><th>Quote</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" id="acc_allinc_r0" data-sync></td>
+                <td>1</td>
+                <td>1-2</td>
+                <td><input type="text" id="amt_allinc_r0_p0" value="$85" data-sync></td>
+                <td><input type="text" id="amt_allinc_r0_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_allinc_r1" data-sync></td>
+                <td>2</td>
+                <td>1-2</td>
+                <td><input type="text" id="amt_allinc_r1_p0" value="$145" data-sync></td>
+                <td><input type="text" id="amt_allinc_r1_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_allinc_r2" data-sync></td>
+                <td>3</td>
+                <td>3-4</td>
+                <td><input type="text" id="amt_allinc_r2_p0" value="$195" data-sync></td>
+                <td><input type="text" id="amt_allinc_r2_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="acc_allinc_r3" data-sync></td>
+                <td>4&#43;</td>
+                <td>5&#43;</td>
+                <td><input type="text" id="amt_allinc_r3_p0" value="Call Us" data-sync></td>
+                <td><input type="text" id="amt_allinc_r3_quote" value="" placeholder="optional" data-sync></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="contract-sheet" id="contract">
+        <h1>Rollover IT Services Agreement</h1>
+        <p class="party-line"><strong>The Bearded Tek</strong></p>
+        <p class="party-line">This Rollover IT Services Agreement (&ldquo;Agreement&rdquo;) is entered into as of</p>
+        <label for="effective_date">Effective date</label>
+        <input class="inline" id="effective_date" type="text" data-sync placeholder="e.g. April 7, 2026">
+
+        <p class="party-line" style="margin-top:1rem;">by and between:</p>
+        <p class="party-line"><strong>The Bearded Tek</strong> (&ldquo;Service Provider&rdquo;)</p>
+        <p class="party-line">and</p>
+        <label for="client_name">Client legal name</label>
+        <input class="inline" id="client_name" type="text" data-sync placeholder="Client company or name">
+        <p class="party-line">(&ldquo;Client&rdquo;)</p>
+
+        <p class="selection-heading">Monthly Service Selection</p>
+        <p style="font-size:.9rem;margin:0 0 .5rem;font-family:system-ui,sans-serif;color:#444;">
+          (Same tiers as the public monthly-contracts flyer; edit amounts before printing.)
+        </p>
+
+        <h2 class="section">1. Services Provided</h2>
+        <p class="block">
+          Service Provider agrees to provide the categories of service Client selects in the Monthly Service Selection. The selection summary below lists each chosen line with its monthly fee and, for Rollover tiers, the additional labor rate per hour. The following subsection describes scope for the selected service categories.
+        </p>
+        <div class="block" id="services_summary" style="font-weight:600;"></div>
+        <div class="block" id="services_subsections" style="margin-top:.75rem;"></div>
+        <h2 class="section">2. Business Hours</h2>
+        <div class="legal-body">
+Unless otherwise agreed in writing, work is generally performed during normal business hours. After-hours or emergency work may be billed at different rates if stated in this Agreement or confirmed in writing.
+</div>
+        <h2 class="section">3. Monthly Service Plan</h2>
+        <div class="legal-body">
+Client agrees to pay recurring monthly fees for each service line Client selects in the Monthly Service Selection above, at the rates shown there (including amounts Client enters in the price fields), unless a different amount is agreed in writing before the Effective Date. A Rollover selection establishes prepaid support hours and the extra-hour labor rates shown for that tier. Backups and Monitoring selections establish covered device counts or endpoint tiers for those services. An All Inclusive selection covers the bundled combination shown for that tier; bundled components are priced together unless Service Provider agrees otherwise in writing.
+</div>
+        <h2 class="section">4. Rollover Policy</h2>
+        <div class="legal-body">
+Unused Monthly Hours will roll over for up to three (3) consecutive months. Hours older than three (3) months will expire and be removed from the Client&#39;s balance. The maximum accumulated balance cannot exceed three (3) months of unused hours unless otherwise agreed in writing. Hours are deducted from the oldest available balance first.
+</div>
+        <h2 class="section">5. Backups, monitoring, and All Inclusive</h2>
+        <div class="legal-body">
+The categories in section 1 and the Monthly Contract detail pages on beardedtek.com referenced in section 1 control what is included when Client selects Backups, Monitoring, or All Inclusive in the Monthly Service Selection. Those pages are incorporated by reference as they read on the Effective Date. If the Monthly Service Selection, this Agreement, and those detail pages ever conflict on scope, the signed Agreement controls. Only categories Client selects in the Monthly Service Selection are included under this Agreement unless added later in a signed writing.
+</div>
+        <h2 class="section">6. Billing and Payment</h2>
+        <div class="legal-body">
+Client authorizes automatic monthly billing via credit card. Billing will occur on the 15th of each month through Service Provider&#39;s invoicing system. Payments are processed securely via Stripe. Failure to process payment may result in suspension of services until payment is resolved.
+</div>
+        <h2 class="section">7. Rates for Additional Services</h2>
+        <div class="legal-body">
+Any Rollover services exceeding the available balance of hours will be billed at the additional labor rates shown for Client&#39;s selected Rollover tier in section 1 (and reflected in the selection summary), unless a different rate is stated in this Agreement or agreed in writing. For plans without a Rollover component, additional services are billed as agreed in writing. Additional charges will be invoiced separately and are due upon receipt unless otherwise agreed.
+</div>
+        <h2 class="section">8. Scheduling and Response Time</h2>
+        <div class="legal-body">
+Service Provider will make reasonable efforts to respond to requests in a timely manner. Response times may vary based on workload, priority, and service level agreements if applicable. Emergency or after-hours support may incur additional charges.
+</div>
+        <h2 class="section">9. Term and Termination</h2>
+        <div class="legal-body">
+This Agreement operates on a month-to-month basis. Either party may terminate this Agreement with 30 days written notice. Upon termination: Any unused hours remaining within the valid rollover period may be used during the notice period. No refunds will be issued for unused hours.
+</div>
+        <h2 class="section">10. Client Responsibilities</h2>
+        <div class="legal-body">
+Client agrees to: Provide necessary access to systems, equipment, and networks; maintain valid backups of critical data; ensure a safe working environment for on-site visits.
+</div>
+        <h2 class="section">11. Limitation of Liability</h2>
+        <div class="legal-body">
+Service Provider shall not be liable for: data loss, business interruption, or consequential damages; issues caused by third-party services, hardware failures, or pre-existing conditions. Client acknowledges that IT services involve inherent risks.
+</div>
+        <h2 class="section">12. Confidentiality</h2>
+        <div class="legal-body">
+Both parties agree to maintain confidentiality of any sensitive or proprietary information obtained during the course of this Agreement.
+</div>
+        <h2 class="section">13. Governing Law</h2>
+        <div class="legal-body">
+This Agreement shall be governed by the laws of the State of Alaska.
+</div>
+        <h2 class="section">14. Entire Agreement</h2>
+        <div class="legal-body">
+This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements or understandings.
+</div>
+        <h2 class="section">15. Acceptance</h2>
+        <div class="legal-body">
+By signing below, both parties agree to the terms of this Agreement.
+</div>
+
+        <h2 class="section">Signatures</h2>
+        <p class="legal-body">Service Provider: The Bearded Tek — William J Kenny III — Date _______________ Signature _______________________</p>
+        <p class="legal-body">Client: <span id="client_name_repeat"></span> — Agent name _______________ — Date _______________ Signature _______________________</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const SUBTEXT = {"all_inclusive":"\nALL INCLUSIVE (BUNDLE)\r\n\r\nWhen All Inclusive is selected on the Monthly Service Selection, this Agreement covers the bundled combination only: prepaid support\r\nhours, off-site backups for the covered device count in that tier row, and monitoring with mesh-backed remote\r\naccess for the device range in that row. Scope matches the Rollover, Backups, and Monitoring descriptions on\r\nbeardedtek.com when those services are purchased separately. Bundled tiers are discounted more than twenty-five\r\npercent versus the same components at published Monthly Contracts list prices. Hardware, software, large\r\nprojects, and after-hours multipliers follow this Agreement and those detail pages where not bundled.\r\n\r\nMore information: https://beardedtek.com/monthly-contracts/all-inclusive/\r\n\r\n","backups":"\nBACKUPS (OFF-SITE)\r\n\r\nAutomatic encrypted off-site backups for covered computers, with storage hosted in Alaska and in-person\r\nsupport when Client needs data restored. Snapshots are point-in-time copies on a schedule; retention keeps\r\n8 hourly snapshots, 7 daily, 4 weekly, 1 monthly, and 1 yearly snapshot layer. Data is encrypted in transit and\r\nat rest. When recovery is needed, Service Provider helps Client choose the right snapshot and restore what is\r\nneeded. Storage beyond the plan tier, legal-hold archiving, and deep application-specific tuning without a\r\nseparate scope are not included unless separately agreed.\r\n\r\nMore information: https://beardedtek.com/monthly-contracts/backups/\r\n","monitoring":"\nMONITORING (MESH AND CONTROLR)\r\n\r\nCovered systems join a private Nebula mesh VPN that Service Provider designs and operates with Nebula\r\nCommander, so monitoring and remote-assistance traffic uses that encrypted overlay instead of ad hoc\r\npublic-internet screen sharing. ControlR agents and dashboard visibility apply to covered devices; remote\r\ndiagnostics and hands-on help use the same stack where the plan includes it, with sessions deliberate,\r\nlogged, and governed by this Agreement. Round-the-clock NOC staffing, SOC-style threat hunting, and deep APM\r\nfor custom software without a separate scope are not included unless separately agreed.\r\n\r\nMore information: https://beardedtek.com/monthly-contracts/monitoring/\r\n","rollover":"\nROLLOVER SERVICE\r\n\r\nPrepaid support hours for the selected tier, given as credits on Client's account and applied to day-to-day\r\nassistance agreed in advance (for example on-site visits, remote troubleshooting, and routine upkeep).\r\nUnused hours may roll forward for up to three consecutive months as stated in the Rollover Policy section of\r\nthis Agreement. Client may review balance and usage in the customer portal. Visits and calls are coordinated\r\nduring regular business hours unless otherwise agreed. After-hours emergencies are billed at one and one-half\r\ntimes the normal rate where this Agreement says so. If Client needs more time than the plan includes, extra\r\nwork is billed at the reduced hourly rates tied to that service level. Hardware, software licenses, large\r\none-off projects, and work outside the written scope are not included unless separately agreed.\r\n\r\nMore information: https://beardedtek.com/monthly-contracts/rollover/\r\n"};
+
+    function gv(id) {
+      const el = document.getElementById(id);
+      return el ? el.value.trim() : '';
+    }
+    function on(id) {
+      const el = document.getElementById(id);
+      return el && el.checked;
+    }
+    function anyAllInclusive() {
+      for (let i = 0; i < 4; i++) {
+        if (on('acc_allinc_r' + i)) return true;
+      }
+      return false;
+    }
+    const ALLINC_LABELS = ['1 hr / 1-2 dev', '2 hr / 1-2 dev', '3 hr / 3-4 dev', '4+ / 5+'];
+
+    function syncServicesProvided() {
+      const lines = [];
+      let i, q, m, x;
+      if (anyAllInclusive()) {
+        for (i = 0; i < 4; i++) {
+          if (!on('acc_allinc_r' + i)) continue;
+          q = gv('amt_allinc_r' + i + '_quote');
+          if (q) {
+            lines.push('All Inclusive — ' + ALLINC_LABELS[i] + ': Monthly (quoted) ' + q + '; Bundle (not priced per add-on hour)');
+          } else {
+            lines.push('All Inclusive — ' + ALLINC_LABELS[i] + ': Monthly ' + gv('amt_allinc_r' + i + '_p0') + '; Bundle (not priced per add-on hour)');
+          }
+        }
+      } else {
+        const lr = ['1 hr tier', '2 hr tier', '3 hr tier', '4+ tier'];
+        for (i = 0; i < 4; i++) {
+          if (!on('acc_rollover_r' + i)) continue;
+          q = gv('amt_rollover_r' + i + '_quote');
+          if (q) {
+            lines.push('Rollover — ' + lr[i] + ': Monthly (quoted) ' + q + '; Additional labor hour: (per agreement)');
+            continue;
+          }
+          m = gv('amt_rollover_r' + i + '_p0');
+          x = gv('amt_rollover_r' + i + '_p1');
+          lines.push('Rollover — ' + lr[i] + ': Monthly ' + m + '; Additional labor hour ' + x);
+        }
+        const lb = ['1 device', '2 devices', '3 devices', '4+ devices'];
+        for (i = 0; i < 4; i++) {
+          if (!on('acc_backups_r' + i)) continue;
+          q = gv('amt_backups_r' + i + '_quote');
+          if (q) {
+            lines.push('Backups — ' + lb[i] + ': Monthly (quoted) ' + q + '; Additional hour: N/A');
+          } else {
+            lines.push('Backups — ' + lb[i] + ': Monthly ' + gv('amt_backups_r' + i + '_p0') + '; Additional hour: N/A');
+          }
+        }
+        const lm = ['1-2 devices', '3-5 devices', '6-9 devices', '10+ devices'];
+        for (i = 0; i < 4; i++) {
+          if (!on('acc_mon_r' + i)) continue;
+          q = gv('amt_mon_r' + i + '_quote');
+          if (q) {
+            lines.push('Monitoring — ' + lm[i] + ': Monthly (quoted) ' + q + '; Additional hour: N/A');
+          } else {
+            lines.push('Monitoring — ' + lm[i] + ': Monthly ' + gv('amt_mon_r' + i + '_p0') + '; Additional hour: N/A');
+          }
+        }
+      }
+      if (!lines.length) {
+        lines.push('(No service line selected — choose at least one tier or enter details manually before signing.)');
+      }
+      document.getElementById('services_summary').textContent = lines.join('\n');
+    }
+
+    function syncServiceSubsections() {
+      const el = document.getElementById('services_subsections');
+      if (!el) return;
+      if (anyAllInclusive()) {
+        el.textContent = SUBTEXT.all_inclusive || '';
+        return;
+      }
+      const parts = [];
+      let i;
+      for (i = 0; i < 4; i++) {
+        if (on('acc_rollover_r' + i)) {
+          parts.push(SUBTEXT.rollover || '');
+          break;
+        }
+      }
+      for (i = 0; i < 4; i++) {
+        if (on('acc_backups_r' + i)) {
+          parts.push(SUBTEXT.backups || '');
+          break;
+        }
+      }
+      for (i = 0; i < 4; i++) {
+        if (on('acc_mon_r' + i)) {
+          parts.push(SUBTEXT.monitoring || '');
+          break;
+        }
+      }
+      el.textContent = parts.join('\n\n');
+    }
+
+    function syncClientRepeat() {
+      const n = gv('client_name');
+      const rep = document.getElementById('client_name_repeat');
+      if (rep) rep.textContent = n || '_________________';
+    }
+
+    function syncAll() {
+      syncServicesProvided();
+      syncServiceSubsections();
+      syncClientRepeat();
+    }
+
+    document.querySelectorAll('[data-sync]').forEach(function (el) {
+      el.addEventListener('input', syncAll);
+      el.addEventListener('change', syncAll);
+    });
+    document.addEventListener('DOMContentLoaded', syncAll);
+    syncAll();
+  })();
+  </script>
+</body>
+</html>

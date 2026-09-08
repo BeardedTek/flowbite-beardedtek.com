@@ -1,11 +1,3 @@
-heading_cal:
-    service: monthly-contracts-meeting
-    link: beardedtek/meeting
-    url: https://cal.beardedtek.com
-    button_text: Discuss Service Contracts
-    config:
-        layout: month_view
-        useSlotsViewOnSmallScreen: "true"
 heading_sheet:
     pdf_rel: pdf/monthly-contracts-flyer.pdf
     button_text: Download Service Plan Overview

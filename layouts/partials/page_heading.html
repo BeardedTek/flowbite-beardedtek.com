@@ -10,7 +10,7 @@
         {{ .text }}
       </p>
       {{ end }}
-      {{ if or .sheet .cal }}
+      {{ if .sheet }}
       <div class="mt-8 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
         {{ with .sheet }}
         {{ if .pdf_rel }}
@@ -20,18 +20,6 @@
           rel="noopener noreferrer">
           {{- .button_text | default "Download PDF" -}}
         </a>
-        {{ end }}
-        {{ end }}
-        {{ with .cal }}
-        {{ if and .service .url .link }}
-        <button type="button"
-          class="inline-block cursor-pointer text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900"
-          data-cal-namespace="{{ .service }}"
-          data-cal-link="{{ .link }}"
-          data-cal-origin="{{ .url }}"
-          data-cal-config='{{ if .config }}{{ .config | jsonify }}{{ else }}{{ dict | jsonify }}{{ end }}'>
-          {{- .button_text | default "Book" -}}
-        </button>
         {{ end }}
         {{ end }}
       </div>

@@ -54,16 +54,7 @@
       {{ end }}
       </div>
       {{- $ctaClass := "cursor-pointer text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-900" -}}
-      {{ if and .cal .cal.service .cal.type .cal.url }}
-      <button type="button"
-        class="{{ $ctaClass }}"
-        data-cal-namespace="{{ .cal.service }}"
-        data-cal-link="{{ printf "beardedtek/%s" .cal.type }}"
-        data-cal-origin="{{ .cal.url }}"
-        data-cal-config='{{ if .cal.config }}{{ .cal.config | jsonify }}{{ else }}{{ dict | jsonify }}{{ end }}'>
-        {{- .cal.button_text | default .button.text | default "Get Started" -}}
-      </button>
-      {{ else if .button }}
+      {{ if .button }}
       <a href="{{ if .button.link }}{{ .button.link }}{{ else }}#{{ end }}"
         class="{{ $ctaClass }}">
         {{ if .button.text }}

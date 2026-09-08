@@ -1,12 +1,7 @@
 enable: true
-appointment_cal:
-  service: navbar-appointment
-  link: beardedtek
-  url: https://cal.beardedtek.com
+appointment_link:
   button_text: Make an Appointment
-  config:
-    layout: month_view
-    useSlotsViewOnSmallScreen: "true"
+  link: /contact/
 links:
   - name: Home
     link: /

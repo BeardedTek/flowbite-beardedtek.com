@@ -21,6 +21,11 @@ params:
   authors: William Kenny
   social_image_path: /marketing-ui/demo/images/og-image.jpg
 
+  formbricks:
+    app_url: https://forms.beardedtek.com
+    # Settings > Workspace > Connect Your App in the Formbricks dashboard
+    workspace_id: "cmtuhzxqq000101plqyqpg7o1"
+
 markup:
   goldmark:
     renderer:

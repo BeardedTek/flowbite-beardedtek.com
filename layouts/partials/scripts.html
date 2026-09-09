@@ -2,3 +2,15 @@
 <script src="{{ "js/vendors.bundle.js" | relURL }}"></script>
 <script defer data-domain="beardedtek.com" src="https://plausible.beardedtek.org/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+{{- with site.Params.formbricks }}
+{{- if and .app_url .workspace_id }}
+<!-- START Formbricks Surveys -->
+<script type="text/javascript">
+!function(){
+    var appUrl = {{ .app_url | jsonify | safeJS }};
+    var workspaceId = {{ .workspace_id | jsonify | safeJS }};
+    var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=appUrl+"/js/formbricks.umd.cjs";t.onload=function(){window.formbricks.setup({workspaceId: workspaceId, appUrl: appUrl})};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
+</script>
+<!-- END Formbricks Surveys -->
+{{- end }}
+{{- end }}

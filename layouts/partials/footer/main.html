@@ -19,7 +19,11 @@
             <ul class="flex flex-wrap justify-around items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                 {{ range $key, $value := .Site.Data.footer.links }}
                 <li>
+                    {{ if $value.trigger_cta }}
+                    <button type="button" class="hover:text-white mx-4 cursor-pointer nav-appointment-cta">{{ $value.name }}</button>
+                    {{ else }}
                     <a href="{{ $value.href }}" class="hover:text-white mx-4">{{ $value.name }}</a>
+                    {{ end }}
                 </li>
                 {{ end }}
             </ul>

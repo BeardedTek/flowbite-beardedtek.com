@@ -19,6 +19,8 @@ form:
       value: on-site service
     - name: Remote Service
       value: remote service
+    - name: Computer Recycling
+      value: computer recycling
     - name: Web Design
       value: static web design
     - name: Web Hosting

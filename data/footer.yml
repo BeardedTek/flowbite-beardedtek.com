@@ -3,7 +3,7 @@ links:
   - name: About
     href: "/about/"
   - name: Support
-    href: "/contact?topic=support"
+    trigger_cta: true
   - name: Contact Us
     href: "/contact"
   - name: Terms

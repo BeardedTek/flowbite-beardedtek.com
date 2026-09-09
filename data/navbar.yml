@@ -1,7 +1,6 @@
 enable: true
 appointment_link:
   button_text: Make an Appointment
-  link: /contact/
 links:
   - name: Home
     link: /

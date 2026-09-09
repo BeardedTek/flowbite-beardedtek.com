@@ -20,11 +20,11 @@
                 <span class="self-center font-semibold kanit-semibold whitespace-nowrap text-primary-800 dark:text-primary-300">{{ .Site.Params.logo.text }}</span>
             </a>
             <div class="flex items-center lg:order-2 dark:text-gray-400">
-                {{- if and $navLink $navLink.link -}}
-                <a href="{{ $navLink.link }}"
-                  class="{{ $navCta }} hidden lg:flex items-center justify-center">
+                {{- if $navLink -}}
+                <button type="button"
+                  class="{{ $navCta }} nav-appointment-cta hidden lg:flex items-center justify-center">
                   {{- $navLink.button_text | default "Make an Appointment" -}}
-                </a>
+                </button>
                 {{- end -}}
                  <button id="themeToggle" data-tooltip-target="tooltip-toggle" type="button" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-2.5">
                     <svg id="themeToggleDarkIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -54,12 +54,12 @@
                         </a>
                     </li>
                     {{ end }}
-                    {{- if and $navLink $navLink.link -}}
+                    {{- if $navLink -}}
                     <li class="lg:hidden border-b border-gray-100 dark:border-gray-700 py-2 px-3">
-                        <a href="{{ $navLink.link }}"
-                          class="{{ $navCta }} w-full">
+                        <button type="button"
+                          class="{{ $navCta }} nav-appointment-cta w-full">
                           {{- $navLink.button_text | default "Make an Appointment" -}}
-                        </a>
+                        </button>
                     </li>
                     {{- end -}}
 

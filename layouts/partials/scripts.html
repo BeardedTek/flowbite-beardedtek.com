@@ -15,17 +15,23 @@
 /* Formbricks survey modal: wider on desktop, near-fullscreen on mobile (leaving our fixed header visible). */
 /* Formbricks' width rule is `max-width: var(--container-sm) !important` inside `@layer utilities`, which
    external CSS can't out-priority directly - but the --container-sm value itself isn't !important, so
-   redefining it at the same selector works. */
+   redefining it at the same selector works. Left as h-fit (Formbricks' own default) rather than pinning
+   top/height explicitly - capping the inner scroll area's height is enough to pull the card up under the
+   header, without touching Formbricks' own position:fixed sizing logic (safer against iOS Safari quirks). */
 #fbjs .sm\:max-w-sm {
   --container-sm: 36rem;
 }
 @media (max-width: 639.98px) {
-  #fbjs [class*="sm:max-w-sm"] {
-    top: 4.5rem;
-    height: auto;
-  }
   #fbjs .overflow-auto {
     max-height: calc(100dvh - 4.5rem - 80px) !important;
+  }
+  /* Formbricks renders inputs/options at 14px, which is below the 16px iOS Safari uses as its
+     autozoom-on-focus threshold - tapping a field would zoom the whole page in and pan sideways.
+     formbricks__css__custom (unlayered, non-important) is injected after our page CSS each time a
+     survey opens, so a plain override loses the "last one wins" tie - !important is required here. */
+  #fbjs {
+    --fb-input-font-size: 16px !important;
+    --fb-option-font-size: 16px !important;
   }
 }
 </style>

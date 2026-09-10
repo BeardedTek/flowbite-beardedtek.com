@@ -11,6 +11,24 @@
     var workspaceId = {{ .workspace_id | jsonify | safeJS }};
     var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=appUrl+"/js/formbricks.umd.cjs";t.onload=function(){window.formbricks.setup({workspaceId: workspaceId, appUrl: appUrl})};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
 </script>
+<style>
+/* Formbricks survey modal: wider on desktop, near-fullscreen on mobile (leaving our fixed header visible). */
+/* Formbricks' width rule is `max-width: var(--container-sm) !important` inside `@layer utilities`, which
+   external CSS can't out-priority directly - but the --container-sm value itself isn't !important, so
+   redefining it at the same selector works. */
+#fbjs .sm\:max-w-sm {
+  --container-sm: 36rem;
+}
+@media (max-width: 639.98px) {
+  #fbjs [class*="sm:max-w-sm"] {
+    top: 4.5rem;
+    height: auto;
+  }
+  #fbjs .overflow-auto {
+    max-height: calc(100dvh - 4.5rem - 80px) !important;
+  }
+}
+</style>
 <!-- END Formbricks Surveys -->
 {{- end }}
 {{- end }}
